@@ -1,0 +1,39 @@
+<div class="comment-detail">
+
+    <span>
+        <h4 class="m-b-xs">
+            {{t 'role.invited'}}<br/>
+            {{t 'casting.tab.role'}} "<i>{{row.content.role.name}}</i>"
+        </h4>
+        <i class="text-muted">
+            {{row.content.role.description}}
+        </i>
+
+            <div class="voffset1 m-b">
+                <i>
+                    {{t 'casting.tab.casting'}}: {{row.content.role.casting.name}}
+                </i>
+            </div>
+
+    </span>
+
+    <div class="m-t">
+
+        {{#link-to "role.apply" row.content.role.id class="tp-button btn red red-background"}}
+            <span class="fa fa-check-square-o"></span> {{t 'role.apply'}}
+        {{/link-to}}
+
+        {{#sl-tooltip
+        class="tp-button btn red red-background"
+        tagName="a"
+        title=""
+        click=(route-action "markAsRead" row.content tableActions.refresh)
+        }}
+            <span class="fa fa-close"></span> {{t 'notification.mark.as.read'}}
+        {{/sl-tooltip}}
+
+
+    </div>
+
+</div>
+

@@ -1,0 +1,315 @@
+
+//************
+// loader
+//************
+
+.loader {
+  animation: 0.3s linear 0s normal none infinite running load8;
+  border-color: rgba(0, 0, 0, 0.2) rgba(0, 0, 0, 0.2) rgba(0, 0, 0, 0.2) #f82020;
+  border-style: solid;
+  border-width: 2px;
+  font-size: 10px;
+  position: fixed;
+  left: 10px;
+  text-indent: -9999em;
+  top: 10px;
+
+  -webkit-transform: translateZ(0px);
+  -moz-transform: translateZ(0px);
+  -ms-transform: translateZ(0px);
+  -o-transform: translateZ(0px);
+  transform: translateZ(0px);
+
+}
+.loader, .loader::after {
+
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+}
+@-webkit-keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+#progress-bar {
+  position: fixed;
+  z-index: 2147483647;
+  top: 0;
+  left: 0;
+  width: 10%;
+  height: 2px;
+  background: #f82020;
+
+  -webkit-border-radius: 10%;
+  -moz-border-radius: 10%;
+  -ms-border-radius: 10%;
+  -o-border-radius: 10%;
+  border-radius: 10%;
+
+  -moz-transition: width 500ms ease-out,opacity 400ms linear;
+  -ms-transition: width 500ms ease-out,opacity 400ms linear;
+  -o-transition: width 500ms ease-out,opacity 400ms linear;
+  -webkit-transition: width 500ms ease-out,opacity 400ms linear;
+  transition: width 500ms ease-out,opacity 400ms linear;
+}
+#progress-bar:before {
+  position: absolute;
+  content: '';
+  top: 0;
+  opacity: 1;
+  width: 10%;
+  right: 0px;
+  height: 2px;
+  box-shadow: #f82020 1px 0 6px 2px;
+
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+}
+
+#progress {
+  position: fixed;
+  z-index: 2147483647;
+  top: 0;
+  left: -6px;
+  width: 1%;
+  height: 2px;
+  background: #0088CC;
+  -moz-border-radius: 1px;
+  -webkit-border-radius: 1px;
+  border-radius: 1px;
+  -moz-transition: width 500ms ease-out,opacity 400ms linear;
+  -ms-transition: width 500ms ease-out,opacity 400ms linear;
+  -o-transition: width 500ms ease-out,opacity 400ms linear;
+  -webkit-transition: width 500ms ease-out,opacity 400ms linear;
+  transition: width 500ms ease-out,opacity 400ms linear;
+}
+
+
+#progress dd, #progress dt {
+  position: absolute;
+  top: 0;
+  height: 2px;
+  -moz-box-shadow: #0088CC 1px 0 6px 1px;
+  -ms-box-shadow: #0088CC 1px 0 6px 1px;
+  -webkit-box-shadow: #0088CC 1px 0 6px 1px;
+  box-shadow: #0088CC 1px 0 6px 1px;
+  -moz-border-radius: 100%;
+  -webkit-border-radius: 100%;
+  border-radius: 100%;
+}
+
+#progress dt {
+  opacity: .6;
+  width: 180px;
+  right: -80px;
+  clip: rect(-6px,90px,14px,-6px);
+}
+
+#progress dd {
+  opacity: .6;
+  width: 20px;
+  right: 0;
+  clip: rect(-6px,22px,14px,10px);
+}
+
+#vmap {
+  background-color: red;
+  float: left;
+  height: 280px;
+  margin: 43px 0;
+  width: 570px;
+}
+
+/* Setup basic CSS for Label */
+.jqvmap_pin {
+  font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial, sans-serif;
+  cursor: default;
+}
+
+/* Hide Whichever Labels you want */
+#jqvmap1_ri_pin, #jqvmap1_dc_pin, #jqvmap1_de_pin, #jqvmap1_md_pin {
+  display: none;
+}
+
+/* Reposition Labels that are not quite right ( labels are centered in shape, and sometimes need tweaking ) */
+#jqvmap1_ak_pin {
+  margin-top: -2%;
+}
+#jqvmap1_ca_pin {
+  margin-left: -2%;
+}
+#jqvmap1_ct_pin {
+  margin-top: -0.25%;
+  margin-left: -0.25%;
+}
+#jqvmap1_fl_pin {
+  margin-left: 5%;
+}
+#jqvmap1_id_pin {
+  margin-top: 3%;
+  margin-left: -1%;
+}
+#jqvmap1_ky_pin {
+  margin-left: 2%;
+}
+#jqvmap1_la_pin {
+  margin-left: -2%;
+}
+#jqvmap1_mi_pin {
+  margin-top: 4%;
+  margin-left: 3%;
+}
+#jqvmap1_ma_pin {
+  margin-top: -0.25%;
+}
+#jqvmap1_mn_pin {
+  margin-top: 2%;
+  margin-left: -2%;
+}
+#jqvmap1_nh_pin {
+  margin-top: 1%;
+  margin-left: -0.25%;
+}
+#jqvmap1_nj_pin {
+  margin-top: 1%;
+}
+#jqvmap1_ok_pin {
+  margin-left: 2%;
+}
+#jqvmap1_va_pin {
+  margin-left: 2%;
+}
+#jqvmap1_wv_pin {
+  margin-left: -1%;
+  margin-top: 1%;
+}
+
+/* Add responsibe support to resize labels for difference screen sizes */
+
+@media only screen and (min-width: 320px) {
+  .jqvmap_pin {
+    font-size: 6px;
+  }
+}
+
+@media only screen and (min-width: 480px) {
+  .jqvmap_pin {
+    font-size: 8px;
+  }
+}
+
+@media only screen and (min-width: 640px) {
+  .jqvmap_pin {
+    font-size: 10px;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  .jqvmap_pin {
+    font-size: 12px;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .jqvmap_pin {
+    font-size: 14px;
+  }
+}
+.notify  p {
+  display: inline;
+  margin: 0;
+}
+.notify  h3 {
+  color: #2e2e2e;
+  float: left;
+  font-family: Roboto;
+  font-size: 15px;
+  line-height: 26px;
+  margin: 0 14px 0 0;
+}
+.notify-content a.close {
+  font-size: 15px;
+  position: absolute;
+  right: 10px;
+  top: 7px;
+}
+.notify {
+
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  float: left;
+  padding: 20px 30px;
+  width: 100%;
+  display: table;
+}
+.notify.simple {
+  background: #ffffff none repeat scroll 0 0;
+}
+.notify.with-color p {
+  color: #656565;
+}
+.notify-content {
+  display: table-cell;
+  padding-left: 20px;
+  vertical-align: middle;
+  width: 100%;
+}
+.notify.rounded {
+
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
+  border-radius: 50px;
+
+}
+.notify.with-image > span {
+
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  display: table;
+  height: 40px;
+  margin-right: 0;
+  overflow: hidden;
+  width: 40px;
+}
+.notify.with-image > span img {
+  float: left;
+  height: 40px;
+  width: 40px;
+}
+.notify.rounded .notify-content a.close {
+  margin-top: -11px;
+  right: 20px;
+  top: 50%;
+}

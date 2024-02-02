@@ -1,0 +1,98 @@
+<div class="container m-t-giant">
+
+    <div class="row">
+
+        <div class="col-md-4">
+            <div class="account-detail">
+                <ul>
+
+                    <li>
+
+                        <div class="row">
+
+                            <div class="col-md-2">
+                                <h3><i style="font-size: 35px;" class="fa fa-television"></i></h3>
+                            </div>
+
+                            <div class="col-md-10">
+                                <h3>{{t 'main.useful'}}</h3>
+                                {{t 'main.just.register'}}
+                            </div>
+
+                        </div>
+
+                    </li>
+
+                    <li>
+
+                        <div class="row">
+
+                            <div class="col-md-2">
+                                <h3><i style="font-size: 35px;" class="fa fa-search"></i></h3>
+                            </div>
+
+                            <div class="col-md-10">
+                                <h3>{{t 'main.simple.search'}}</h3>
+                                {{t 'main.if.you.are.looking'}}
+                            </div>
+
+                        </div>
+
+                    </li>
+
+                    <li>
+
+                        <div class="row">
+
+                            <div class="col-md-2">
+                                <h3><i style="font-size: 35px;" class="fa fa-thumbs-o-up"></i></h3>
+                            </div>
+
+                            <div class="col-md-10">
+                                <h3>{{t 'main.tailored'}}</h3>
+                                {{t 'main.one.place'}}
+                            </div>
+
+                        </div>
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            <div class="contact-sec">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="widget-title">
+                            <h3>{{t 'login.header'}}</h3>
+                        </div>
+                        <div class="account-form">
+
+                            <div id="content">
+
+                                {{login-form}}
+
+                            </div>
+
+                        </div>
+
+                        <div class="more-option">
+                            <span>{{t 'general.or'}}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="creat-an-account">
+                            <span>{{t 'login.no.account'}}</span>
+                            {{#link-to "register" class="tp-button red left"}}<span class="fa fa-user"></span>
+                                {{t 'general.create.account'}}
+                            {{/link-to}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

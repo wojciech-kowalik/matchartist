@@ -1,0 +1,50 @@
+<div class="col-xs-12 no-padding no-margin account-form">
+
+    <form id="file-upload" method="POST" enctype="multipart/form-data">
+
+        <!--<input type="hidden" name="title" value="none"/>-->
+        <input type="hidden" name="category" value="{{type}}"/>
+
+        <div class="row fileupload-buttonbar">
+            <div class="col-xs-12">
+
+                <div class="tp-button btn red red-background fileinput-button left m-r">
+                    <i class="glyphicon glyphicon-plus"></i>
+                    <span>{{t 'general.add.file'}}</span>
+                    <input type="file" name="file" single>
+                </div>
+
+                <button type="reset" class="tp-button gray cancel left m-r">
+                    <i class="glyphicon glyphicon-ban-circle"></i>
+                    <span>{{t 'general.cancel'}}</span>
+                </button>
+
+                {{#if changeSendMethod}}
+                <div class="checkbox left">
+                    <label>{{input type="checkbox" checked=isChecked}}{{t 'general.change'}}</label>
+                </div>
+                {{/if}}
+
+                <span class="fileupload-process"></span>
+
+            </div>
+
+            </div>
+
+            <div class="row">
+
+            <!-- The global progress state -->
+            <div class="col-xs-12 fileupload-progress fade">
+                <!-- The extended global progress state -->
+                <div class="progress-extended">&nbsp;</div>
+            </div>
+
+                </div>
+
+        <!-- The table listing the files available for upload/download -->
+        <table role="presentation" class="table table-striped">
+            <tbody class="files"></tbody>
+        </table>
+    </form>
+
+</div>

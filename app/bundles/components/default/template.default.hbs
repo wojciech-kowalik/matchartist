@@ -1,0 +1,33 @@
+{{#light-table
+table
+height=height
+tableActions=(hash refresh=(action 'refresh'))
+as |t|}}
+
+    {{t.head onColumnClick=(action 'onSortColumn') iconAscending='fa fa-sort-asc' iconDescending='fa fa-sort-desc' fixed=false}}
+
+    {{#t.body canSelect=false autoHideScrollbar=false as |body|}}
+
+        {{#if isLoading}}
+            {{#body.loader}}
+                {{partial 'partials/loader'}}
+            {{/body.loader}}
+        {{/if}}
+
+        {{#unless isLoading}}
+
+            {{#if table.isEmpty}}
+                {{#body.no-data}}
+                    No data found
+                {{/body.no-data}}
+            {{/if}}
+
+        {{/unless}}
+
+    {{/t.body}}
+
+{{/light-table}}
+
+{{#if isPagerShowed}}
+    {{sl-pagination changePage='changePage' isResponsive=false totalPages=totalPages}}
+{{/if}}

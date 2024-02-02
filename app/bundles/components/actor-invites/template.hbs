@@ -1,0 +1,30 @@
+
+<div class="m-b">{{t 'role.choose.invitation'}}</div>
+
+{{#each model as |casting|}}
+
+    <div class="m-t m-b-sm">{{casting.name}}</div>
+
+    {{#each casting.roles as |role|}}
+
+        <label class="radio-inline">
+
+            <input class="chosen-role" value="{{role.id}}" name="role" type="radio">
+
+            {{#if role.name}}
+                <span class="fa fa-user"></span> <i>"{{role.name}}"</i>
+            {{else}}
+                <span class="fa fa-user"></span> <i>"{{role.id}}"</i>
+            {{/if}}
+
+        </label>
+
+    {{/each}}
+
+{{/each}}
+
+<div class="widget-title"></div>
+
+{{#sl-button action="invites" class="tp-button red left" bubbles=false}}
+    <span class="fa fa-share-square-o"></span> {{t 'general.send'}}
+{{/sl-button}}

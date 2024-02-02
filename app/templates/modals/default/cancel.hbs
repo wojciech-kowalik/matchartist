@@ -1,0 +1,18 @@
+{{#tp-modal
+    title='Data'
+    activityButtonText='Ok'
+    closeButtonText='Close'
+    activityMethod=(route-action 'cancel' model)
+    closeMethod='closeModal'
+}}
+
+    <div class="row">
+        <div class="col-xs-4 center">
+            <img class="rounded-img" src="http://www.fillmurray.com/96/96?top" alt="">
+        </div>
+        <div class="col-xs-8">
+            <div>Do you want to cancel this casting ?</div>
+        </div>
+    </div>
+
+{{/tp-modal}}

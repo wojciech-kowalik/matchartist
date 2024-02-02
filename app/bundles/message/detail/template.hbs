@@ -1,0 +1,71 @@
+<div style="margin: 0px; margin-top: 50px" class="row">
+    <div class="widget borders">
+        <div class="grids">
+            <div class="widget">
+
+                <div class="widget-title">
+                    <h3 class="p-t-lg">{{t 'message.detail'}}</h3>
+                    {{#sl-button class="tp-button purple right m-b" bubbles=false action='backToPrevious'}}
+                        <span class="fa fa-arrow-left"></span> {{t 'general.back'}}
+                    {{/sl-button}}
+                </div>
+
+                <div class="form-elements-sec">
+                    <div class="account-form">
+                        <form role="form">
+                            <div class="row">
+                                <div class="col-md-12 field">
+
+                                    <span>
+                                        <h5>
+                                            <b>{{t 'message.subject'}}:</b> {{model.topic}}
+                                        </h5>
+                                    </span>
+
+                                    <span>
+                                        <h5>
+                                            <b>{{t 'message.from'}}:</b> {{model.senderFullName}}
+                                            ({{model.senderUser.email}})
+                                        </h5>
+                                    </span>
+
+                                    <span>
+                                        <h5>
+                                            <b>{{t 'message.date'}}:</b> {{moment-format model.createdAt 'Do MMMM YYYY'}}
+                                            ({{moment-from-now model.createdAt interval=1000}})
+                                        </h5>
+                                    </span>
+
+                                </div>
+
+                                <div class="col-xs-12 m-t-n-md">
+
+                                    <h5>
+                                        <b>{{t 'message.content'}}:</b><br/>
+                                        <i style="line-height: 20px;" class="m-t-sm block text-justify font-normal">{{model.body}}</i>
+                                    </h5>
+
+                                    <div class="widget-title">
+                                        <h3></h3>
+                                    </div>
+
+                                    {{#link-to "message.reply" model.id class="tp-button btn red red-background m-r"}}
+                                        <span class="fa fa-reply"></span> {{t 'message.reply'}}
+                                    {{/link-to}}
+                                    {{#sl-tooltip
+                                    class="tp-button btn red red-background"
+                                    tagName="a"
+                                    title=""
+                                    click=(route-action "showModal" "modals/default/delete" model)
+                                    }}
+                                        <span class="fa fa-close"></span> {{t 'general.delete'}}
+                                    {{/sl-tooltip}}
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

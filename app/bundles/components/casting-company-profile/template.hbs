@@ -1,0 +1,347 @@
+<div class="heading-sec">
+
+    <div class="row">
+        <div class="col-xs-12 column">
+            <div class="heading-profile">
+                <h2>{{t "user.profile.welcome-back"}} <span>{{user.firstname}}</span></h2>
+                <span><span
+                        class="fa fa-clock-o"></span> {{t "user.profile.last-login"}} {{moment-from-now loggedDate interval=1000}}</span>
+            </div>
+        </div>
+        <div class="col-md-8 column">
+
+        </div>
+
+    </div>
+</div><!-- Top Bar Chart -->
+
+<div class="panel-content">
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="profile-sec">
+
+                <div class="user-bar">
+
+                    <div class="user-thumb left">
+                        {{#if castingCompany.avatar}}
+                            <img src="{{castingCompany.avatar}}" alt=""/>
+                        {{else}}
+                            <span class="fa fa-users"></span>
+                        {{/if}}
+                    </div>
+
+                    <ul style="margin: 0px;" class="pull-left">
+                        <li>
+                            <b>{{user.firstname}} {{user.lastname}}
+                                {{#if castingCompany}}<span class="text-muted">({{castingCompany.name}})</span>{{/if}}
+                            </b>
+                            <span> {{type}}</span>
+                        </li>
+                    </ul>
+
+                </div>
+
+                <div class="profile-all">
+
+                    {{#if errorMessage}}
+                        <div class="alert alert-danger text-center">
+                            {{errorMessage}}
+                        </div>
+                    {{/if}}
+
+                    {{#if successMessage}}
+                        <div class="alert alert-success text-center">
+                            {{successMessage}}
+                        </div>
+                    {{/if}}
+
+                    {{#if infoMessage}}
+                        <div class="alert alert-info text-center">
+                            {{infoMessage}}
+                        </div>
+                    {{/if}}
+
+                    <div class="row">
+
+                        <div id="content">
+
+                            <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+
+                                <li class="{{attribute-required "informations" user.isAttributeRequired}}">
+                                    <a href="#informations" data-toggle="tab">{{t 'user.profile.informations'}}</a>
+                                </li>
+                                <li>
+                                    <a href="#casting-company-data"
+                                       data-toggle="tab">{{t "casting.company.profile.personal.data"}}</a>
+                                </li>
+
+                            </ul>
+
+                            <div class="tab-content">
+
+                                <div class="tab-pane {{attribute-required "informations" user.isAttributeRequired}}"
+                                     id="informations">
+
+                                    <div style="margin: 0px;" class="row panel-border-padding">
+
+                                        <div class="widget">
+                                            <div class="grids">
+
+                                                <div class="widget">
+
+                                                    <div class="form-elements-sec">
+
+                                                        <div class="widget-title">
+                                                            <h3>{{t 'actor.profile.personal.data'}}</h3>
+                                                        </div>
+
+                                                        <div class="account-form">
+
+                                                            <form role="form">
+
+                                                                <div class="row">
+
+                                                                    <div class="col-md-6 field">
+                                                                        <label for="user-firstname">Firstname</label>
+                                                                        {{input value=user.firstname class="form-control"}}
+                                                                    </div>
+
+                                                                    <div class="col-md-6 field">
+                                                                        <label for="user-lastname">Lastname</label>
+                                                                        {{input value=user.lastname class="form-control"}}
+                                                                    </div>
+
+                                                                    <div class="col-md-6 field">
+                                                                        <label for="user-email">{{t "casting.company.profile.email"}}</label>
+                                                                        {{input value=user.email class="form-control"}}
+                                                                    </div>
+
+                                                                </div>
+
+                                                                <div class="widget-title">
+                                                                    <h3>Password change</h3>
+                                                                </div>
+
+                                                                <div class="row">
+
+                                                                    <div class="col-md-6 field">
+                                                                        <label for="user-password">New password</label>
+                                                                        {{input type="password" value=user.password class="form-control"}}
+                                                                    </div>
+
+                                                                    <div class="col-md-6 field">
+                                                                        <label for="user-password-confirmation">Password
+                                                                            confirmation</label>
+                                                                        {{input type="password" value=user.passwordConfirmation class="form-control"}}
+                                                                    </div>
+
+                                                                </div>
+
+
+                                                                <div class="widget-title m-t"></div>
+
+
+                                                                <div class="row">
+
+                                                                    <div class="col-xs-12 field">
+                                                                        {{#sl-button class="tp-button red left" bubbles=false action='save'}}
+                                                                            <span class="fa fa-save"></span> {{t 'general.save'}}
+                                                                        {{/sl-button}}
+                                                                    </div>
+
+                                                                </div>
+
+                                                            </form>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="tab-pane"
+                                     id="casting-company-data">
+
+                                    <div style="margin: 0px;" class="row panel-border-padding">
+
+                                        <div class="widget">
+                                            <div class="grids">
+
+                                                <div class="widget">
+
+                                                    <div class="form-elements-sec">
+
+                                                        <div class="widget-title">
+                                                            <h3>{{t "casting.company.profile.personal.data"}}</h3>
+                                                        </div>
+
+                                                        <div class="account-form">
+
+                                                            <form role="form">
+
+                                                                <div class="row">
+
+                                                                    <div class="col-xs-12">
+                                                                        <label for="user-avatar">{{t "casting.company.profile.avatar"}}</label>
+
+                                                                        {{#if castingCompany.id}}
+                                                                            {{tp-media-uploader type='picture' serviceUrl='casting_companies/{{id}}/avatar' id=castingCompany.id changeSendMethod=true}}
+                                                                        {{else}}
+                                                                            <div class="alert alert-info text-center">
+                                                                                {{t "general.please.save.data.avatar"}}
+                                                                            </div>
+                                                                        {{/if}}
+
+                                                                    </div>
+
+                                                                    <div class="col-md-6 field">
+                                                                        <label>{{t "casting.company.profile.name"}}</label>
+                                                                        {{input class="form-control" value=castingCompany.name placeholder=(t 'casting.company.profile.name')}}
+                                                                        {{#if showErrors}}
+                                                                            <div class="text-muted form-error-label">{{v-get castingCompany 'name' 'message'}}</div>
+                                                                        {{/if}}
+                                                                    </div>
+
+                                                                    <div class="col-md-6 field">
+                                                                        <label>{{t "casting.company.profile.address"}}</label>
+                                                                        {{input class="form-control" value=castingCompany.address placeholder=(t 'casting.company.profile.address')}}
+                                                                        {{#if showErrors}}
+                                                                            <div class="text-muted form-error-label">{{v-get castingCompany 'address' 'message'}}</div>
+                                                                        {{/if}}
+                                                                    </div>
+
+                                                                    <div class="col-md-6 field">
+                                                                        <label>{{t "casting.company.profile.city"}}</label>
+                                                                        {{input class="form-control" value=castingCompany.city placeholder=(t 'casting.company.profile.city')}}
+                                                                        {{#if showErrors}}
+                                                                            <div class="text-muted form-error-label">{{v-get castingCompany 'city' 'message'}}</div>
+                                                                        {{/if}}
+                                                                    </div>
+
+                                                                    <div class="col-md-6 field">
+                                                                        <label>{{t "casting.company.profile.zip"}}</label>
+                                                                        {{input class="form-control" value=castingCompany.zipNumber placeholder=(t 'casting.company.profile.zip')}}
+                                                                        {{#if showErrors}}
+                                                                            <div class="text-muted form-error-label">{{v-get castingCompany 'zipNumber' 'message'}}</div>
+                                                                        {{/if}}
+                                                                    </div>
+
+                                                                    <div class="col-md-6 field">
+                                                                        <label>{{t "casting.company.profile.country"}}</label>
+                                                                        {{input class="form-control" value=castingCompany.country placeholder=(t 'casting.company.profile.country')}}
+                                                                        {{#if showErrors}}
+                                                                            <div class="text-muted form-error-label">{{v-get castingCompany 'country' 'message'}}</div>
+                                                                        {{/if}}
+                                                                    </div>
+
+                                                                    <div class="col-md-6 field">
+                                                                        <label>{{t "casting.company.profile.company.id"}}</label>
+                                                                        {{input class="form-control" value=castingCompany.idNumber placeholder=(t 'casting.company.profile.company.id')}}
+                                                                        {{#if showErrors}}
+                                                                            <div class="text-muted form-error-label">{{v-get castingCompany 'idNumber' 'message'}}</div>
+                                                                        {{/if}}
+                                                                    </div>
+
+                                                                    <div class="col-md-6 field">
+                                                                        <label>{{t "casting.company.profile.contact.person.firstname"}}</label>
+                                                                        {{input class="form-control" value=castingCompany.contactFirstname placeholder=(t 'casting.company.profile.contact.person.firstname')}}
+                                                                        {{#if showErrors}}
+                                                                            <div class="text-muted form-error-label">{{v-get castingCompany 'contactFirstname' 'message'}}</div>
+                                                                        {{/if}}
+                                                                    </div>
+
+                                                                    <div class="col-md-6 field">
+                                                                        <label>{{t "casting.company.profile.contact.person.lastname"}}</label>
+                                                                        {{input class="form-control" value=castingCompany.contactLastname placeholder=(t 'casting.company.profile.contact.person.lastname')}}
+                                                                        {{#if showErrors}}
+                                                                            <div class="text-muted form-error-label">{{v-get castingCompany 'contactLastname' 'message'}}</div>
+                                                                        {{/if}}
+                                                                    </div>
+
+                                                                    <div class="col-md-6 field">
+                                                                        <label>{{t "casting.company.profile.email"}}</label>
+                                                                        {{input class="form-control" value=castingCompany.contactEmail placeholder=(t 'casting.company.profile.email')}}
+                                                                        {{#if showErrors}}
+                                                                            <div class="text-muted form-error-label">{{v-get castingCompany 'contactEmail' 'message'}}</div>
+                                                                        {{/if}}
+                                                                    </div>
+
+                                                                    <div class="col-md-6 field">
+                                                                        <label>{{t "casting.company.profile.phone"}}</label>
+                                                                        {{input class="form-control" value=castingCompany.contactPhone placeholder=(t 'casting.company.profile.phone')}}
+                                                                        {{#if showErrors}}
+                                                                            <div class="text-muted form-error-label">{{v-get castingCompany 'contactPhone' 'message'}}</div>
+                                                                        {{/if}}
+                                                                    </div>
+
+                                                                    <div class="col-md-6 field">
+                                                                        <label>{{t "casting.company.profile.tax.number"}}</label>
+                                                                        {{input class="form-control" value=castingCompany.taxNumber placeholder=(t 'casting.company.profile.tax.number')}}
+                                                                        {{#if showErrors}}
+                                                                            <div class="text-muted form-error-label">{{v-get castingCompany 'taxNumber' 'message'}}</div>
+                                                                        {{/if}}
+                                                                    </div>
+
+                                                                    <div class="col-md-6 field">
+                                                                        <label>{{t "casting.company.profile.website"}}</label>
+                                                                        {{input class="form-control" value=castingCompany.website placeholder=(t 'casting.company.profile.website')}}
+                                                                        {{#if showErrors}}
+                                                                            <div class="text-muted form-error-label">{{v-get castingCompany 'website' 'message'}}</div>
+                                                                        {{/if}}
+                                                                    </div>
+
+                                                                    <div class="col-md-12 field">
+                                                                        <label>{{t "casting.company.profile.description"}}</label>
+                                                                        {{textarea value=castingCompany.description class="form-control" placeholder=(t 'casting.company.profile.description')}}
+                                                                    </div>
+
+
+
+                                                                </div>
+
+                                                                <div class="widget-title m-t"></div>
+
+                                                                <div class="row">
+
+                                                                    <div class="col-xs-12 field">
+                                                                        {{#sl-button class="tp-button red left" bubbles=false action='saveCastingCompany'}}
+                                                                            <span class="fa fa-save"></span> {{t 'general.save'}}
+                                                                        {{/sl-button}}
+                                                                    </div>
+
+                                                                </div>
+
+                                                            </form>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+            </div><!-- Profile Sec -->
+        </div>
+    </div>
+</div><!-- Panel Content -->

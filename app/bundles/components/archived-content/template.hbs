@@ -1,0 +1,11 @@
+<div class="comment-detail">
+
+    <span>
+        <h4 class="m-b-xs">{{row.content.casting.name}}</h4>
+        <i class="text-muted">{{t 'role.actor.casting.archived.date.end'}}: {{moment-format row.content.casting.endDate 'Do MMMM YYYY'}} ({{moment-from-now row.content.casting.endDate}})</i>
+        <div class="m-t-sm">{{t 'role.actor.casting.archived.role.name'}}: {{row.content.name}}</div>
+        <div class="m-t-xxs">{{t 'role.actor.casting.archived.address'}}: {{row.content.casting.address}}</div>
+    </span>
+
+</div>
+

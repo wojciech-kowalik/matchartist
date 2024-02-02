@@ -1,0 +1,105 @@
+<div class="panel-content m-t">
+    <div class="row">
+        <div class="col-xs-12 m-t">
+            <div class="widget borders">
+                <div class="widget-padding">
+
+                    <div class="widget-title">
+                        <h3>{{t 'actor.attributes.filter'}}</h3>
+                        <span>{{t 'actor.search.actor.attributes'}}</span>
+                    </div>
+
+                    <div class="account-form">
+
+                        {{#if isShowed}}
+
+                            {{#sl-button class="tp-button purple m-b" action='hideFilters' bubbles=false}}
+                                <span class="fa fa-filter"></span> {{t 'general.hide.filter'}}
+                            {{/sl-button}}
+
+                            <form role="form">
+                                <div class="row">
+                                    {{#each attributes as |attribute|}}
+                                        <!-- {{log attribute.value}} -->
+                                        {{#if attribute.isComboSingle}}
+                                            <div class="col-md-12 field">
+                                                {{tp-select content=attribute.comboContext label=attribute.name placeholder=attribute.name value=attribute.value action='updateFilter' model=attribute }}
+                                            </div>
+                                        {{/if}}
+                                        {{#if attribute.isComboMulti}}
+                                            <div class="col-md-12 field">
+                                                {{tp-select content=attribute.comboContext label=attribute.name placeholder=attribute.name multiple=true value=attribute.value action='updateFilter' model=attribute }}
+                                            </div>
+                                        {{/if}}
+                                        {{#if attribute.isBoolean}}
+                                            <div class="col-md-12 field">
+                                                {{tp-boolean label=attribute.fullDescription name=attribute.name placeholder=attribute.name value=attribute.value action='updateFilter' model=attribute }}
+                                            </div>
+                                        {{/if}}
+                                        {{#if attribute.isTrilean}}
+                                            <div class="col-md-12 field">
+                                                {{tp-trilean label=attribute.fullDescription name=attribute.name placeholder=attribute.name value=attribute.value action='updateFilter' model=attribute }}
+                                            </div>
+                                        {{/if}}
+                                        {{#if attribute.isScore}}
+                                            <div class="col-md-12 field">
+                                                {{tp-score label=attribute.fullDescription name=attribute.name placeholder=attribute.name value=attribute.value action='updateFilter' model=attribute }}
+                                            </div>
+                                        {{/if}}
+                                        {{#if attribute.isRangeInt}}
+                                            <div class="col-md-12 field">
+                                                {{tp-range-filter label=attribute.fullDescription labelFrom="From" labelTo="To"  action='updateFilter' model=attribute}}
+                                            </div>
+                                        {{/if}}
+                                        {{#if attribute.isRangeFloat}}
+                                            <div class="col-md-12 field">
+                                                {{tp-range-filter label=attribute.fullDescription labelFrom="From" labelTo="To"  action='updateFilter'model=attribute}}
+                                            </div>
+                                        {{/if}}
+                                    {{/each}}
+
+                                    <div class="widget-title">
+
+                                    </div>
+
+                                    <div class="col-xs-12 field">
+
+                                        {{#sl-button class="tp-button red" action='filter' bubbles=false }}
+                                            <span class="fa fa-search"></span> {{t 'general.search'}}
+                                        {{/sl-button}}
+
+                                        {{#sl-button class="tp-button purple" action='hideFilters' bubbles=false}}
+                                            <span class="fa fa-filter"></span> {{t 'general.hide.filter'}}
+                                        {{/sl-button}}
+
+                                        {{#sl-button class="tp-button purple" action='clearFilter' bubbles=false}}
+                                            <span class="fa fa-remove"></span> {{t 'general.clear.filter'}}
+                                        {{/sl-button}}
+
+                                    </div>
+
+                                </div>
+
+                            </form>
+
+                        {{else}}
+
+                            <div class="row">
+
+                                <div class="col-md-12 field m-b">
+                                    {{#sl-button id="show-filters" class="tp-button red" action='showFilters' bubbles=false}}
+                                        <span class="fa fa-filter"></span> {{t 'general.show.filter'}}
+                                    {{/sl-button}}
+                                </div>
+
+                            </div>
+
+
+                        {{/if}}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+
+{{#if errorMessage}}
+    <div class="alert alert-danger text-center">
+        {{errorMessage}}
+    </div>
+{{/if}}
+
+{{#if successMessage}}
+    <div class="alert alert-success text-center">
+        {{successMessage}}
+    </div>
+{{/if}}
+
+{{#if infoMessage}}
+    <div class="alert alert-info text-center">
+        {{infoMessage}}
+    </div>
+{{/if}}
+
+<form>
+    <div class="row">
+        <div class="field col-md-12">
+            {{input class="form-control" value=identification placeholder=(t "login.form.enter.login")}}
+        </div>
+        <div class="field col-md-12">
+            {{input class="form-control" value=password placeholder=(t "login.form.enter.password") type='password'}}
+        </div>
+        <div class="field col-md-12">
+            {{#sl-button class="tp-button red left" bubbles=false action='authenticate'}}
+                <span class="fa fa-sign-in"></span> {{t 'login.form.now'}}
+            {{/sl-button}}
+        </div>
+    </div>
+</form>
+
+

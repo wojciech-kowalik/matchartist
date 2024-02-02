@@ -1,0 +1,33 @@
+{{#if errorMessage}}
+    <div class="alert alert-danger text-center">
+        {{errorMessage}}
+    </div>
+{{/if}}
+
+{{#if successMessage}}
+    <div class="alert alert-success text-center">
+        {{successMessage}}
+    </div>
+{{/if}}
+
+{{#if infoMessage}}
+    <div class="alert alert-info text-center">
+        {{infoMessage}}
+    </div>
+{{/if}}
+
+<form>
+
+    <div class="row">
+        <div class="col-md-6 field">
+            {{input class="form-control" value=user.email placeholder=(t 'actor.register.enter.email')}}
+        </div>
+        <div class="col-md-12 field">
+            {{#sl-button class="tp-button red left" bubbles=false action='submit'}}
+                <span class="fa fa-envelope"></span>
+                {{t 'login.form.now'}}
+            {{/sl-button}}
+        </div>
+    </div>
+
+</form>

@@ -1,0 +1,56 @@
+<div style="margin: 0px; margin-top: 50px" class="row">
+    <div class="widget borders">
+        <div class="grids">
+            <div class="widget">
+                <div class="widget-title">
+                    {{#sl-button class="tp-button purple right m-t" bubbles=false action='backToPrevious'}}
+                        <span class="fa fa-arrow-left"></span> {{t 'general.back'}}
+                    {{/sl-button}}
+                    <h3 class="p-t-lg">{{t 'general.report'}} for {{model.role.name}}</h3>
+                    <span>{{t 'actor.report.status.attributes'}}</span>
+                </div>
+                <div class="form-elements-sec">
+                    <div class="account-form">
+
+                        <div class="row">
+
+
+                            <div class="col-xs-4 text-center user-avatar">
+                                    <img style="width: 86px !important; height: 86px !important;" src="{{model.actor.user.avatar}}" alt=""><br/>
+                                    <span>{{model.actor.user.firstname}} {{model.actor.user.lastname}}</span>
+                            </div>
+
+                            <div class="col-xs-8">
+
+                                {{#each model.report as |item|}}
+
+                                    <div class="row m-b">
+
+                                        <div class="col-xs-4">
+                                            <span class="bold">{{item.attribute.name}}</span>: {{item.value}}
+                                        </div>
+
+                                        <div class="col-xs-8">
+                                            {{#if item.match}}
+                                                <span class="green-color"><span class="fa fa-thumbs-up"></span><b>{{t 'actor.report.matched'}}</b></span>
+                                            {{else}}
+                                                <span class="red-color"><span class="fa fa-thumbs-down"></span><b>{{t 'actor.report.unmatched'}}!</b></span>
+                                            {{/if}}
+                                        </div>
+                                    </div>
+
+                                {{/each}}
+
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

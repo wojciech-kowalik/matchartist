@@ -1,0 +1,56 @@
+{{#light-table
+table
+height=height
+tableActions=(hash refresh=(action 'refresh'))
+as |t|}}
+
+    {{t.head onColumnClick=(action 'onSortColumn') iconAscending='fa fa-sort-asc' iconDescending='fa fa-sort-desc' fixed=false}}
+
+    {{#t.body canSelect=false autoHideScrollbar=false as |body|}}
+
+        {{#if isLoading}}
+            {{#body.loader}}
+                {{partial 'partials/loader'}}
+            {{/body.loader}}
+        {{/if}}
+
+        {{#unless isLoading}}
+
+            {{#if table.isEmpty}}
+                {{#body.no-data}}
+                    {{t 'general.no.data'}}
+                {{/body.no-data}}
+            {{/if}}
+
+        {{/unless}}
+
+    {{/t.body}}
+
+{{/light-table}}
+
+{{#if isPagerShowed}}
+    {{sl-pagination changePage='changePage' isResponsive=false totalPages=totalPages}}
+{{/if}}
+
+<div class="row limit-container">
+
+    <div class="col-xs-1 m-t-sm">
+        {{t 'data.grid.display'}}
+    </div>
+
+    <div class="col-xs-2">
+
+        {{tp-select
+            content=range
+            value=selected
+            disableSearch=true
+            multiple=false
+            action='changeLimit'
+        }}
+
+    </div>
+
+    <div class="col-xs-9 m-t-sm"></div>
+
+</div>
+

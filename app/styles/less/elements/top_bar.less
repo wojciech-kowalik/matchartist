@@ -1,0 +1,294 @@
+//**************
+// top bar
+//**************
+
+.top-bar {
+
+  background: @white-color none repeat scroll 0 0;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
+  float: left;
+  left: 0;
+  position: fixed;
+  top: 0;
+  padding-top: 0px;
+  width: 100%;
+  z-index: 1000;
+}
+
+.logo {
+  float: left;
+  min-width: 220px;
+  padding: 20px 0 20px 35px;
+
+  -webkit-transition: all 0.4s ease 0s;
+  -moz-transition: all 0.4s ease 0s;
+  -ms-transition: all 0.4s ease 0s;
+  -o-transition: all 0.4s ease 0s;
+  transition: all 0.4s ease 0s;
+}
+
+.logo > a {
+  color: @logo-color;
+  float: left;
+  font-family: @font-family-roboto;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 25px;
+}
+
+.logo > a > i {
+  color: @logo-anchor-color;
+  float: left;
+  font-size: 18px;
+  line-height: 25px;
+  margin-right: 10px;
+}
+
+.menu-options {
+  color: @menu-options-color;
+  cursor: pointer;
+  float: right;
+  font-size: 18px;
+  height: 25px;
+  line-height: 25px;
+  position: relative;
+  text-align: center;
+
+  -webkit-transition: all 0.4s ease 0s;
+  -moz-transition: all 0.4s ease 0s;
+  -ms-transition: all 0.4s ease 0s;
+  -o-transition: all 0.4s ease 0s;
+  transition: all 0.4s ease 0s;
+  width: 25px;
+}
+
+.menu-action {
+  height: 12px;
+  position: absolute;
+  top: 50%;
+
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+
+  width: 14px;
+}
+
+.menu-action::after {
+  background: @menu-action-color none repeat scroll 0 0;
+
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+
+  bottom: 0;
+  content: "";
+  height: 2px;
+  left: 0;
+  position: absolute;
+
+  -webkit-transition: all 0.4s ease 0s;
+  -moz-transition: all 0.4s ease 0s;
+  -ms-transition: all 0.4s ease 0s;
+  -o-transition: all 0.4s ease 0s;
+  transition: all 0.4s ease 0s;
+  width: 100%;
+}
+
+.menu-options.active .menu-action::after {
+  bottom: 6px;
+
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+.menu-action::before {
+  background: @menu-action-color none repeat scroll 0 0;
+
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+
+  content: "";
+  height: 2px;
+  left: 0;
+  position: absolute;
+  top: 0;
+
+  -webkit-transition: all 0.4s ease 0s;
+  -moz-transition: all 0.4s ease 0s;
+  -ms-transition: all 0.4s ease 0s;
+  -o-transition: all 0.4s ease 0s;
+  transition: all 0.4s ease 0s;
+  width: 100%;
+}
+
+.menu-options.active .menu-action::before {
+  top: 4px;
+
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.menu-action > i {
+  height: 2px;
+  left: 0;
+  position: absolute;
+  top: 58%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  /* transform: translateY(-50%); */
+  width: 14px;
+}
+
+.menu-action > i::before {
+
+  background: @menu-action-color none repeat scroll 0 0;
+
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+
+  content: "";
+  height: 2px;
+  left: 0;
+  position: absolute;
+  top: 0;
+
+  -webkit-transition: all 0.4s ease 0s;
+  -moz-transition: all 0.4s ease 0s;
+  -ms-transition: all 0.4s ease 0s;
+  -o-transition: all 0.4s ease 0s;
+  transition: all 0.4s ease 0s;
+  width: 100%;
+}
+
+.menu-options.active .menu-action > i::before {
+  opacity: 0;
+
+  -webkit-transform: scale(0.5);
+  -moz-transform: scale(0.5);
+  -ms-transform: scale(0.5);
+  -o-transform: scale(0.5);
+  transform: scale(0.5);
+}
+
+form.search-form {
+
+  border: 1px solid #e0e5e7;
+
+  -webkit-border-radius: 22px;
+  -moz-border-radius: 22px;
+  -ms-border-radius: 22px;
+  -o-border-radius: 22px;
+  border-radius: 22px;
+
+  float: left;
+  height: 38px;
+  margin-left: 80px;
+  margin-top: 14px;
+  position: relative;
+  width: 213px;
+}
+
+form.search-form > input {
+  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+  border: medium none;
+  color: #7b7b7b;
+  float: left;
+  font-size: 12px;
+  padding: 9px 20px 9px 25px;
+  width: 100%;
+}
+
+form.search-form > button {
+  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+  border: medium none;
+  color: #7f8890;
+  font-size: 12px;
+  padding: 8px 16px 8px 20px;
+  position: absolute;
+  right: 0;
+}
+
+.top-bar > ul {
+  float: left;
+  list-style: outside none none;
+  margin: 0;
+  padding: 0;
+}
+
+.top-bar > ul > li {
+  float: left;
+  margin-left: 40px;
+}
+
+.top-bar > ul > li > a > i {
+  font-size: 11px;
+  margin-right: 8px;
+}
+
+.quick-links {
+  float: right;
+  padding: 16px 14px 16px 0;
+}
+
+.quick-links > ul {
+  float: left;
+  list-style: outside none none;
+  margin: 0;
+  padding: 0;
+}
+
+.quick-links > ul > li {
+  float: left;
+  margin-right: 3px;
+  position: relative;
+}
+
+.quick-links > ul > li > a, .quick-links > ul > li > button {
+  border: 1px solid #e8edf2;
+
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+
+  color: #ffffff;
+  cursor: pointer;
+  float: left;
+  font-size: 14px;
+  height: 34px;
+  line-height: 30px;
+  text-align: center;
+  width: 34px;
+
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+
+  -webkit-transition: all 0.4s ease 0s;
+  -moz-transition: all 0.4s ease 0s;
+  -ms-transition: all 0.4s ease 0s;
+  -o-transition: all 0.4s ease 0s;
+  transition: all 0.4s ease 0s;
+}

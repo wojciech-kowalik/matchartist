@@ -1,0 +1,113 @@
+<div class="row voffset4">
+    <div class="widget" style="padding-top: 10px; border: 1px solid #ddd; margin-bottom: 30px">
+
+        <div class="padder-md p-t-md">
+
+            <div class="widget-title">
+                <h3>{{model.casting.name}} {{model.role.name}}</h3>
+            </div>
+
+        </div>
+  <div class="col-md-10 field">
+
+  </div>
+  <div class="col-md-2 field">
+    {{#sl-button class="tp-button purple right m-b" bubbles=false action='backToPrevious' }}
+      <span class="fa fa-arrow-left"></span> {{t 'general.back'}}
+    {{/sl-button}}
+  </div>
+</div>
+  <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+    {{#unless model.casting.disableHearings}}
+      <li class={{activeTabActor "tabMatchedActors" model.casting}}>
+        <a href="#matchedActors" data-toggle="tab" {{action 'setUp' 'tabMatchedActors'}}>{{t 'casting.tab.matched.actors'}}</a>
+      </li>
+      {{else}}
+        <li class="disabled">
+          <a>{{t 'casting.tab.matched.actors'}}</a>
+        </li>
+    {{/unless}}
+    {{#unless model.casting.disableHearings}}
+      <li class={{activeTabActor "tabUNmatchedActors" model.casting}}>
+        <a href="#uNmatchedActors" data-toggle="tab" {{action 'setUp' 'tabUNmatchedActors'}}>{{t 'casting.tab.unmatched.actors'}}</a>
+      </li>
+      {{else}}
+        <li class="disabled">
+          <a>{{t 'casting.tab.unmatched.actors'}}</a>
+        </li>
+    {{/unless}}
+    {{#unless model.casting.disableHearings}}
+      <li class={{activeTabActor "tabInvitedActors" model.casting}}>
+        <a href="#invitedActors" data-toggle="tab" {{action 'setUp' 'tabInvitedActors'}}>{{t 'casting.tab.invited.actors'}}</a>
+      </li>
+      {{else}}
+        <li class="disabled">
+          <a>{{t 'casting.tab.invited.actors'}}</a>
+        </li>
+    {{/unless}}
+    {{#unless model.casting.disableHearings}}
+      <li class={{activeTabActor "tabActorsAppoinments" model.casting}}>
+        <a href="#actorsAppoinments" data-toggle="tab" {{action 'setUp' 'tabActorsAppoinments'}}>{{t 'casting.tab.actors.appointments'}}</a>
+      </li>
+      {{else}}
+        <li class="disabled">
+          <a>{{t 'casting.tab.actors.appointments'}}</a>
+        </li>
+    {{/unless}}
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane {{activeTabActor "tabMatchedActors" model.casting}}" id="matchedActors">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="widget borders">
+            <div class="widget-padding">
+              {{#if model.casting.published}}
+                {{tp-data-grid configuration=matchedGridConfiguration}}
+              {{/if}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tab-pane {{activeTabActor "tabUNmatchedActors" model.casting}}" id="uNmatchedActors">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="widget borders">
+            <div class="widget-padding">
+              {{#if model.casting.published}}
+                {{tp-data-grid configuration=unMatchedGridConfiguration}}
+              {{/if}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tab-pane {{activeTabActor "tabInvitedActors" model.casting}}" id="invitedActors">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="widget borders">
+            <div class="widget-padding">
+              {{#if model.casting.published}}
+                {{tp-data-grid configuration=invitedGridConfiguration}}
+              {{/if}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tab-pane {{activeTabActor "tabActorsAppoinments" model.casting}}" id="actorsAppoinments">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="widget borders">
+            <div class="widget-padding">
+              {{#if model.casting.published}}
+                {{tp-data-grid configuration=appointedgridConfiguration}}
+              {{/if}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

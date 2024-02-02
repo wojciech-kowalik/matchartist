@@ -1,0 +1,28 @@
+{
+  "name": "frontend",
+  "dependencies": {
+    "ember": "~2.6.0",
+    "ember-cli-shims": "0.1.1",
+    "ember-cli-test-loader": "0.2.2",
+    "ember-qunit-notifications": "0.1.0",
+    "bootstrap": "3.3.6",
+    "bootstrap-datepicker": "^1.6.4",
+    "highcharts": "~4.1.10",
+    "jquery-mousewheel": "^3.1.12",
+    "jquery.fn.twbs-responsive-pagination": "~0.1.2",
+    "moment": "~2.10.3",
+    "moment-timezone": "~0.4.0",
+    "rxjs": "~2.5.2",
+    "select2": "~3.5.2",
+    "typeahead.js": "~0.11.1",
+    "ionrangeslider": "^2.1.4",
+    "nouislider": "^8.0.1",
+    "blueimp-file-upload": "^9.12.5",
+    "jquery-ui": "^1.12.1",
+    "blueimp-gallery": "^2.21.3"
+  },
+  "devDependencies": {
+    "hover": "^2.0.2",
+    "bootstrap-select": "^1.10.0"
+  }
+}

@@ -1,0 +1,75 @@
+<div class="container m-t-giant">
+
+    <div class="row">
+
+        <div class="col-md-12">
+
+            <div class="contact-sec">
+
+                <div class="row">
+
+                    <div class="col-md-8">
+                        <div class="widget-title">
+                            <h3>{{t 'register.your.account'}}</h3>
+                        </div><!-- Widget title -->
+                        <div class="account-form">
+
+                            <ul style="margin-bottom: 8px;" id="tabs" class="nav nav-tabs"
+                                data-tabs="tabs">
+                                <li class="active"><a href="#actor" data-toggle="tab">{{t 'register.actor'}}</a></li>
+                                <li><a href="#agent" data-toggle="tab">{{t 'register.agent'}}</a></li>
+                                <li><a href="#casting-company" data-toggle="tab">{{t 'register.casting.company'}}</a></li>
+                            </ul>
+
+                            <div style="margin-bottom: 15px;" id="my-tab-content" class="tab-content">
+
+                                <div class="tab-pane active" id="actor">
+
+                                    <div class="account-form">
+
+                                        {{actor-register-form user=model errorMessage=errorMessage}}
+
+                                    </div>
+
+                                </div>
+
+                                <div class="tab-pane" id="agent">
+
+                                    <div class="account-form">
+
+                                        {{agent-register-form user=model errorMessage=errorMessage}}
+
+                                    </div>
+
+                                </div>
+
+                                <div class="tab-pane" id="casting-company">
+
+                                    <div class="account-form">
+
+                                        {{casting-company-register-form user=model errorMessage=errorMessage}}
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="more-option">
+                            <span>{{t 'general.or'}}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="creat-an-account">
+                            <span>{{t 'login.account'}}</span>
+                            {{#link-to "login" class="tp-button red left"}}<span class="fa fa-sign-in"></span> {{t 'login.into'}}{{/link-to}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>

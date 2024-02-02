@@ -1,0 +1,88 @@
+<div class="heading-sec">
+
+  <div class="row">
+    <div class="col-md-4 column">
+      <div class="heading-profile">
+
+      </div>
+    </div>
+    <div class="col-md-8 column">
+
+    </div>
+
+  </div>
+</div>
+<!-- Top Bar Chart -->
+
+<div class="panel-content">
+  <div class="row">
+    <div class="col-md-12">
+
+      <div class="profile-sec">
+
+        <div class="user-bar">
+
+          <div class="user-thumb left">
+            <img src="http://dummyimage.com/177x177/ff0000/292929&text=Company Logo" alt="" />
+          </div>
+
+
+          <ul style="margin: 0px;" class="pull-left">
+            <li>
+              <b>Casting company name</b>
+              <span><i class="fa fa-map-marker"></i> Stockholm, Sweden</span>
+            </li>
+          </ul>
+
+        </div>
+
+        <div class="profile-all">
+
+          {{#if errorMessage}}
+            <div class="alert alert-danger text-center">
+              {{errorMessage}}
+            </div>
+          {{/if}}
+
+          {{#if successMessage}}
+            <div class="alert alert-success text-center">
+              {{successMessage}}
+            </div>
+          {{/if}}
+
+          {{#if infoMessage}}
+            <div class="alert alert-info text-center">
+              {{infoMessage}}
+            </div>
+          {{/if}}
+
+          <div class="row">
+            <div class="widget">
+              <div class="grids">
+
+                <div class="widget">
+                  <div class="widget-title">
+                    <h3>Casting title</h3>
+                  </div>
+                  <div id="content">
+
+                    Casting description
+                  </div>
+                  <div class="account-form">
+                    <form>
+                      <div class="col-xs-12 field">
+                        <input type="submit" value="Apply">
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Profile Sec -->
+    </div>
+  </div>
+</div>
+<!-- Panel Content -->

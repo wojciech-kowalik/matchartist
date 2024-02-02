@@ -1,0 +1,16 @@
+<div class="comment-detail">
+    <h4 class="m-b-n-xxs">{{row.content.actor.user.firstname}} {{row.content.actor.user.lastname}}</h4>
+        <i class="text-muted">{{row.content.actor.user.email}}</i>
+        <p style="text-align: justify; line-height: 20px;">
+          {{t 'casting.hearing.date'}} {{formated-date row.content.hearing.date_from 'YYYY-MM-DD'}} - {{formated-date row.content.hearing.date_to 'YYYY-MM-DD'}}
+        </p>
+    {{#link-to "appointment.detail" row.content.hearing.role_id row.content.actor.id row.content.id row.content.hearingId class="tp-button btn red red-background"}}
+      <span class="fa fa-info"></span> {{t 'general.detail'}}
+    {{/link-to}}
+    {{#link-to "message.new" row.content.user.id
+    (query-params transitionTarget="casting.edit" transitionId=casting_id)
+    class="tp-button btn red red-background"}}
+        <span class="fa fa-send-o"></span>
+        {{t 'general.send.message'}}
+    {{/link-to}}
+</div>

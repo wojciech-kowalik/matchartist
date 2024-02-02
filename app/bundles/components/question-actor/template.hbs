@@ -1,0 +1,17 @@
+
+{{#each questions as |question|}}
+    <div class="col-md-12 field m-t">
+        {{tp-boolean label=question.text name=question.id value=question.answer.option action='saveQuestion' model=question }}
+    </div>
+    <div class="col-md-12 field input-{{question.id}} {{if question.answer.option "hidden" ""}} {{unless question.isAnswer "hidden" ""}}">
+        <label>{{t 'role.comment'}}</label>
+
+        <input type="text" class="form-control" value="{{question.answer.comment}}" placeholder="This value is optional">
+
+        <button class="btn btn-default tp-button small red left" {{action 'saveComment' question}}>
+            <span class="fa fa-save"></span> {{t 'general.save'}}
+        </button>
+
+    </div>
+{{/each}}
+

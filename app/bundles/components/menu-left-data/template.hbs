@@ -1,0 +1,11 @@
+<div class="admin-details">
+    {{#if avatar.publicUrl}}
+        <span><img class="img-responsive" src="{{avatar.publicUrl}}"
+                   style="width: 86px !important; height: 86px; !important" alt=""/></span>
+    {{else}}
+        <span style="font-size: 60px;" class="fa fa-user"></span>
+    {{/if}}
+
+    <i>{{roleName}}</i>
+    <h5 class="admin-status online">Online</h5>
+</div>

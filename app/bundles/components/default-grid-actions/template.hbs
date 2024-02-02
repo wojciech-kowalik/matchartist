@@ -1,0 +1,4 @@
+
+{{#sl-button theme="info" click=(route-action "showModal" "modals/default/show" row.content)}}<span class="fa fa-user"></span>{{/sl-button}}
+{{#sl-button theme="info" click=(route-action 'custom' row.content tableActions.refresh)}}<span class="fa fa-gears"></span>{{/sl-button}}
+{{#sl-button theme="danger" click=(route-action "showModal" "modals/default/delete" row.content tableActions.refresh)}}<span class="fa fa-close"></span>{{/sl-button}}

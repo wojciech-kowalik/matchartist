@@ -1,0 +1,32 @@
+<div class="comment-detail">
+
+    <span>
+        <h4 class="m-b-xs">{{row.content.user.firstname}} {{row.content.user.lastname}}
+        </h4>
+        <i class="text-muted">{{row.content.user.email}}</i>
+        <div class="voffset1">{{t 'actor.personal.number'}}: {{row.content.personalNumber}}</div>
+        {{#if row.content.birthDate}}
+            <div>{{t 'actor.birth.date'}}: {{row.content.birthDate}}</div>
+        {{/if}}
+    </span>
+
+    <div class="m-t">
+
+        {{#link-to "actor.detail" row.content.id class="tp-button btn red red-background m-t-sm"}}
+            <span class="fa fa-info"></span> {{t 'general.detail'}}
+        {{/link-to}}
+        {{#link-to "message.new" row.content.user.id
+        (query-params transitionTarget="casting.edit" transitionId=casting_id)
+        class="tp-button btn red red-background m-t-sm"}}
+            <span class="fa fa-send-o"></span>
+            {{t 'general.send.message'}}
+        {{/link-to}}
+
+        {{#link-to "actor.report" row.content.id casting_id
+        (query-params transitionTarget="casting.edit" transitionId=casting_id)
+        class="tp-button btn btn-default purple small m-t-sm"}}
+            <span class="fa fa-flag"></span> {{t 'general.report'}}
+        {{/link-to}}
+
+    </div>
+</div>

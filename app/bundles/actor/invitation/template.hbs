@@ -1,0 +1,22 @@
+<div style="margin: 0px; margin-top: 50px" class="row">
+    <div class="widget borders">
+        <div class="grids">
+            <div class="widget">
+                <div class="widget-title">
+                    <h3 class="p-t-lg">{{t 'invitation.invitation'}}</h3>
+                    {{#sl-button class="tp-button purple right m-b" bubbles=false action='backToPrevious'}}
+                        <span class="fa fa-arrow-left"></span> {{t 'general.back'}}
+                    {{/sl-button}}
+                </div>
+                <div class="form-elements-sec">
+                    <div class="account-form">
+
+                        {{actor-invites model=model id=id}}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,388 @@
+<div class="heading-sec">
+
+    <div class="row">
+        <div class="col-xs-12 column">
+            <div class="heading-profile">
+                <h2>{{t "user.profile.welcome-back"}} <span>{{user.firstname}}</span></h2>
+        <span><span
+                class="fa fa-clock-o"></span> {{t "user.profile.last-login"}} {{moment-from-now loggedDate interval=1000}}</span>
+            </div>
+        </div>
+        <div class="col-md-8 column">
+
+        </div>
+
+    </div>
+</div>
+<!-- Top Bar Chart -->
+
+<div class="panel-content">
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="profile-sec">
+
+                <div class="user-bar">
+
+                    <div class="user-thumb left">
+
+                        {{#if user.avatar}}
+                            <img src="{{user.avatar}}" alt=""/>
+                        {{else}}
+                            <span class="fa fa-user"></span>
+                        {{/if}}
+
+                    </div>
+
+                    <ul>
+
+                        <li>
+                            {{#if mainAttr.height}}
+                                {{mainAttr.height}} cm
+                                <span>Height</span>
+                            {{/if}}
+                        </li>
+                        <li>
+                            {{#if mainAttr.weight}}
+                                {{mainAttr.weight}} kg
+                                <span>Weight</span>
+                            {{/if}}
+                        </li>
+                        <li>
+                            {{#if mainAttr.eyeColor}}
+                                {{mainAttr.eyeColor}}
+                                <span>Eyes</span>
+                            {{/if}}
+                        </li>
+                    </ul>
+
+                    <a title="" class="purple-skin" style="cursor:default;">
+                        <i style="font-size: 14px; font-weight: 700;"
+                           class="fa {{user.actor.genderSign}} pull-left"></i>
+                    </a>
+
+                    <ul style="margin: 0px;" class="pull-left">
+                        <li>
+                            <b>{{user.firstname}} <br/>{{user.lastname}}, {{user.actor.age}}</b>
+                            <span><i class="fa fa-map-marker"></i> {{userCountryName}}</span>
+                        </li>
+                    </ul>
+
+                </div>
+
+                <div class="profile-all">
+
+                    {{#if errorMessage}}
+                        <div class="alert alert-danger text-center">
+                            {{errorMessage}}
+                        </div>
+                    {{/if}}
+
+                    {{#if successMessage}}
+                        <div class="alert alert-success text-center">
+                            {{successMessage}}
+                        </div>
+                    {{/if}}
+
+                    {{#if infoMessage}}
+                        <div class="alert alert-info text-center">
+                            {{infoMessage}}
+                        </div>
+                    {{/if}}
+
+                    <div class="row">
+
+                        <div id="content">
+
+                            <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+                                <li class="{{attribute-required "informations" user.isAttributeRequired}}">
+                                    <a href="#informations" data-toggle="tab">{{t 'user.profile.informations'}}</a>
+                                </li>
+                                <li>
+                                    <a href="#gallery" data-toggle="tab">{{t 'user.profile.photos'}}</a>
+                                </li>
+                                <li>
+                                    <a href="#video" data-toggle="tab">{{t 'user.profile.videos'}}</a>
+                                </li>
+                                <li>
+                                    <a href="#audio" data-toggle="tab">{{t 'user.profile.audio'}}</a>
+                                </li>
+                                <li>
+                                    <a href="#document" data-toggle="tab">{{t 'user.profile.documents'}}</a>
+                                </li>
+                                <li class="{{attribute-required "attributes" user.isAttributeRequired}}">
+                                    <a href="#attributes" data-toggle="tab">Personal Attributes</a>
+                                </li>
+                            </ul>
+
+                            <div class="tab-content">
+
+                                <div class="tab-pane {{attribute-required "informations" user.isAttributeRequired}}"
+                                     id="informations">
+
+                                    <div style="margin: 0px;" class="row panel-border-padding">
+
+                                        <div class="widget">
+                                            <div class="grids">
+
+                                                <div class="widget">
+
+                                                    <div class="form-elements-sec">
+
+                                                        <div class="widget-title">
+                                                            <h3>{{t 'actor.profile.personal.data'}}</h3>
+                                                        </div>
+
+                                                        <div class="account-form">
+
+                                                            <form role="form">
+
+                                                                <div class="row">
+
+                                                                    <div class="col-xs-12">
+                                                                        <label for="user-avatar">Avatar</label> {{tp-media-uploader type='picture' serviceUrl='users/me/avatar' changeSendMethod=true refresh=(route-action "refresh")}}
+                                                                    </div>
+
+                                                                    <div class="col-md-6 field">
+                                                                        <label for="user-firstname">Firstname</label> {{input value=user.firstname class="form-control"}}
+                                                                    </div>
+                                                                    <div class="col-md-6 field">
+                                                                        <label for="user-lastname">Lastname</label> {{input value=user.lastname class="form-control"}}
+                                                                    </div>
+
+                                                                    <div class="col-md-6 field">
+
+                                                                        <label for="user-gender">Gender</label> {{tp-select content=genders value=user.actor.gender disableSearch=true multiple=false placeholder="Choose gender" }}
+                                                                    </div>
+
+                                                                    <div class="col-md-6 field">
+                                                                        <label for="user-birth-date">Birth
+                                                                            date</label> {{masked-input mask='1111-11-11' value=user.actor.birthDate class="form-control" placeholder='Choose birth date (yyyy-mm-dd)'}}
+                                                                    </div>
+
+                                                                    <div class="col-md-6 field">
+                                                                        <label for="user-country">Country</label> {{tp-select content=countries value=user.actor.userCountry disableSearch=true multiple=false placeholder="Choose country" }}
+
+                                                                    </div>
+
+                                                                    <div class="col-md-6 field">
+                                                                        <label for="user-personal-number">Personal
+                                                                            number</label> {{input value=user.actor.personalNumber class="form-control"}}
+                                                                    </div>
+
+                                                                    <div class="col-md-6 field">
+                                                                        <label for="user-email">Email</label> {{input value=user.email class="form-control"}}
+                                                                    </div>
+
+                                                                </div>
+
+
+                                                                <div class="widget-title">
+                                                                    <h3>Password change</h3>
+                                                                </div>
+
+                                                                <div class="row">
+
+                                                                    <div class="col-md-6 field">
+                                                                        <label for="user-password">New
+                                                                            password</label> {{input type="password" value=user.password class="form-control"}}
+                                                                    </div>
+
+                                                                    <div class="col-md-6 field">
+                                                                        <label for="user-password-confirmation">Password
+                                                                            confirmation</label> {{input type="password" value=user.passwordConfirmation class="form-control"}}
+                                                                    </div>
+
+                                                                </div>
+
+                                                                <div class="widget-title m-t"></div>
+
+                                                                <div class="row">
+
+                                                                    <div class="col-xs-12 ">
+
+                                                                        {{#sl-button class="tp-button red left" bubbles=false action='save' }}
+                                                                            <span class="fa fa-save"></span> {{t 'general.save'}}
+                                                                        {{/sl-button}}
+
+                                                                        {{#unless user.actor.assignedAgents}}
+
+                                                                            {{#sl-button class="tp-button purple left" bubbles=false action='hireAgent' }}
+                                                                                <span class="fa fa-user"></span> {{t 'actor.profile.hire.agent'}}
+                                                                            {{/sl-button}}
+
+                                                                        {{/unless}}
+
+                                                                    </div>
+
+                                                                </div>
+
+                                                            </form>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="tab-pane" id="gallery">
+
+                                    <div style="margin: 0px;" class="row panel-border-padding">
+
+                                        <div class="widget">
+
+                                            <div class="grids">
+
+                                                <div class="widget">
+
+                                                    <div class="form-elements-sec">
+
+                                                        <div class="widget-title">
+                                                            <h3>Photos</h3>
+                                                        </div>
+
+                                                        <div class="row">
+
+                                                            {{tp-media-uploader type='picture' refresh=(route-action "refresh")}} {{tp-media-gallery files=files}}
+
+                                                        </div>
+
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="tab-pane" id="video">
+
+                                    <div style="margin: 0px;" class="row panel-border-padding">
+
+                                        <div class="widget">
+                                            <div class="grids">
+
+                                                <div class="widget">
+                                                    <div class="form-elements-sec">
+                                                        <div class="widget-title">
+                                                            <h3>Videos</h3>
+                                                        </div>
+
+
+                                                        <div class="row">
+
+                                                            {{tp-media-uploader type='video' refresh=(route-action "refresh")}} {{tp-media-video files=files}}
+
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="tab-pane" id="audio">
+
+                                    <div style="margin: 0px;" class="row panel-border-padding">
+
+                                        <div class="widget">
+                                            <div class="grids">
+
+                                                <div class="widget">
+                                                    <div class="form-elements-sec">
+                                                        <div class="widget-title">
+                                                            <h3>Audio</h3>
+                                                        </div>
+
+
+                                                        <div class="row">
+
+                                                            {{tp-media-uploader type='audio' refresh=(route-action "refresh")}} {{tp-media-audio files=files}}
+
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="tab-pane" id="document">
+
+                                    <div style="margin: 0px;" class="row panel-border-padding">
+
+                                        <div class="widget">
+                                            <div class="grids">
+
+                                                <div class="widget">
+                                                    <div class="form-elements-sec">
+                                                        <div class="widget-title">
+                                                            <h3>Documents</h3>
+                                                        </div>
+
+                                                        <div class="row">
+
+                                                            {{tp-media-uploader type='document' refresh=(route-action "refresh")}} {{tp-media-document files=files}}
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="tab-pane {{attribute-required "attributes" user.isAttributeRequired}}"
+                                     id="attributes">
+                                    <div style="margin: 0px;" class="row panel-border-padding">
+                                        <div class="widget">
+                                            <div class="grids">
+                                                <div class="widget">
+                                                    <div class="form-elements-sec">
+                                                        <div class="widget-title">
+                                                            <h3>Personal attributes</h3>
+                                                        </div>
+                                                        <div class="account-form">
+                                                            <form role="form">
+                                                                <div class="row">
+                                                                    {{actor-attributes attributes=attributes user=user}}
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Profile Sec -->
+        </div>
+    </div>
+</div>
+<!-- Panel Content -->

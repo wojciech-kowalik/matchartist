@@ -1,0 +1,260 @@
+<div class="heading-sec">
+    <div class="row">
+        <div class="col-xs-12 column">
+            <div class="heading-profile">
+
+            </div>
+        </div>
+        <div class="col-md-8 column">
+        </div>
+    </div>
+</div>
+
+
+<div class="panel-content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="profile-sec">
+                <div class="user-bar">
+
+                    <div class="user-thumb left">
+
+                        {{#if model.profile.user.avatar}}
+                            <img src="{{model.profile.user.avatar}}" alt=""/>
+                        {{else}}
+                            <span class="fa fa-user"></span>
+                        {{/if}}
+
+                    </div>
+
+                    <ul>
+
+                        <li>
+                            1.85 cm
+                            <span>Height</span>
+                        </li>
+                        <li>
+                            85 kg
+                            <span>Weight</span>
+                        </li>
+                        <li>
+                            Brown
+                            <span>Eyes</span>
+                        </li>
+                    </ul>
+
+                    <a title="" class="purple-skin">
+                        <i style="font-size: 14px; font-weight: 700;"
+                           class="fa {{model.profile.genderSign}} pull-left"></i>
+                    </a>
+
+                    <ul style="margin: 0px;" class="pull-left">
+                        <li>
+                            <b>
+                                {{model.profile.user.firstname}}
+                                <br/>{{model.profile.user.lastname}}, {{model.profile.age}}
+                            </b>
+                            <span><i class="fa fa-map-marker"></i> {{model.profile.userCountryName}}</span>
+                        </li>
+                    </ul>
+
+                </div>
+
+
+                <div class="profile-all">
+
+                    <div class="row">
+
+                        <div id="content">
+
+                            <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+
+                                <li class="active">
+                                    <a href="#informations" data-toggle="tab">{{t 'user.profile.informations'}}</a>
+                                </li>
+
+                                <li>
+                                    <a href="#gallery" data-toggle="tab">{{t 'user.profile.photos'}}</a>
+                                </li>
+
+                                <li>
+                                    <a href="#video" data-toggle="tab">{{t 'user.profile.videos'}}</a>
+                                </li>
+
+                                <li>
+                                    <a href="#document" data-toggle="tab">{{t 'user.profile.documents'}}</a>
+                                </li>
+
+                            </ul>
+
+                            <div class="tab-content">
+
+                                <div class="tab-pane active"
+                                     id="informations">
+
+                                    <div style="margin: 0px;" class="row panel-border-padding">
+
+                                        <div class="widget">
+                                            <div class="grids">
+
+                                                <div class="widget">
+
+                                                    <div class="form-elements-sec">
+
+                                                        <div class="widget-title">
+                                                            <h3>{{t 'actor.profile.personal.data'}}</h3>
+                                                        </div>
+
+                                                        <div class="account-form">
+
+                                                            <div class="form-elements-sec">
+                                                                <div class="account-form">
+                                                                    <form role="form">
+                                                                        <div class="row">
+                                                                            <div class="col-md-6 field">
+                                                                                <span style="font-weight: 300; font-size: 13px;">{{t 'general.email'}}:</span>
+                                                                                <span style="font-size: 13px;">{{model.profile.user.email}}</span>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="row">
+                                                                            <div class="col-md-6 field">
+                                                                                <span style="font-weight: 300; font-size: 13px;">{{t 'general.age'}}:</span>
+                                                                                <span style="font-size: 13px;">{{model.profile.age}}</span>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="row">
+                                                                            {{#each model.attributes as |item|}}
+                                                                                <div class="col-md-6 field">
+                                                                                    <span style="font-weight: 300; font-size: 13px;">{{item.name}}:</span>
+                                                                                    <span style="font-size: 13px;">{{item.value}}</span>
+                                                                                </div>
+                                                                            {{/each}}
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+
+                                                                <div class="widget-title">
+                                                                    <h3></h3>
+                                                                </div>
+
+                                                                {{#link-to "message.new" model.profile.user.id
+                                                                (query-params transitionTarget="actor.detail" transitionId=model.profile.id)
+                                                                class="tp-button btn btn-default red"}}
+                                                                    <span class="fa fa-send-o"></span>
+                                                                    {{t 'general.send.message'}}
+                                                                {{/link-to}}
+
+                                                                {{#sl-button class="tp-button purple" bubbles=false action='backToPrevious'}}
+                                                                    <span class="fa fa-arrow-left"></span> {{t 'general.back'}}
+                                                                {{/sl-button}}
+
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="tab-pane" id="gallery">
+
+                                    <div style="margin: 0px;" class="row panel-border-padding">
+
+                                        <div class="widget">
+
+                                            <div class="grids">
+
+                                                <div class="widget">
+
+                                                    <div class="form-elements-sec">
+
+                                                        <div class="widget-title">
+                                                            <h3>{{t 'user.profile.photos'}}</h3>
+                                                        </div>
+
+                                                        <div class="row">
+                                                            {{tp-media-gallery files=model.profile.files isShowMode=true}}
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="tab-pane" id="video">
+
+                                    <div style="margin: 0px;" class="row panel-border-padding">
+
+                                        <div class="widget">
+                                            <div class="grids">
+
+                                                <div class="widget">
+                                                    <div class="form-elements-sec">
+                                                        <div class="widget-title">
+                                                            <h3>{{t 'user.profile.videos'}}</h3>
+                                                        </div>
+
+                                                        <div class="row">
+                                                            {{tp-media-video files=model.profile.files isShowMode=true}}
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="tab-pane" id="document">
+
+                                    <div style="margin: 0px;" class="row panel-border-padding">
+
+                                        <div class="widget">
+                                            <div class="grids">
+
+                                                <div class="widget">
+                                                    <div class="form-elements-sec">
+                                                        <div class="widget-title">
+                                                            <h3>{{t 'user.profile.documents'}}</h3>
+                                                        </div>
+
+                                                        <div class="row">
+                                                            {{tp-media-document files=model.profile.files isShowMode=true}}
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Panel Content -->

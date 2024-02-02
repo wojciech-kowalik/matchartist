@@ -1,0 +1,24 @@
+
+<div class="comment-detail">
+
+    <span class="block m-b-sm">
+        <h4 class="m-b-xs">{{row.content.casting.name}}</h4>
+        <i class="text-muted">{{t 'role.actor.casting.matched.date.start'}}: {{moment-format row.content.casting.startDate 'Do MMMM YYYY'}} ({{moment-from-now row.content.casting.startDate}})</i>
+        <div class="m-t-sm">{{t 'role.actor.casting.matched.role.name'}}: {{row.content.name}}</div>
+        <div class="m-t-xxs">{{t 'role.actor.casting.matched.address'}}: {{row.content.casting.address}}</div>
+        <div class="m-t-xxs">{{t 'role.actor.casting.matched.status'}}: <span class="{{row.content.status.colorClass}}">{{row.content.status.name}}</span></div>
+    </span>
+
+    <div class="m-t">
+        {{#unless row.content.participating}}
+            {{#link-to "role.apply" row.content.id class="tp-button btn red red-background"}}
+                <span class="fa fa-check-square-o"></span>{{t 'general.apply'}}
+            {{/link-to}}
+        {{else}}
+            You have applied for this role
+        {{/unless}}
+    </div>
+
+</div>
+
+

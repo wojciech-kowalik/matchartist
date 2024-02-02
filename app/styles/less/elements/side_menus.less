@@ -1,0 +1,139 @@
+//************
+// side menus
+//************
+
+.side-menus {
+  float: left;
+  position: relative;
+  width: 100%;
+  z-index: 9;
+}
+
+.menu-scroll {
+  float: left;
+  margin-top: -70px;
+  width: 100%;
+}
+
+.side-menus > span {
+  color: #a6a6a6;
+  float: left;
+  font-family: Open sans;
+  font-size: 10px;
+  padding: 0 30px;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.side-menus nav {
+  float: left;
+  padding-top: 15px;
+  width: 100%;
+}
+
+.side-menus nav > ul {
+  float: left;
+  list-style: outside none none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.side-menus nav > ul > li {
+  float: left;
+  width: 100%;
+}
+
+.side-menus nav > ul > li > a {
+  color: #d1d1d1;
+  float: left;
+  font-family: Open sans;
+  font-size: 13px;
+  padding: 7px 20px;
+  position: relative;
+}
+
+.side-menus nav > ul > li > a > i {
+  width: 22px;
+}
+
+.side-menus .menu-item-has-children > a::before {
+  background: #8b8b8c none repeat scroll 0 0;
+  content: "";
+  height: 1px;
+  left: 100%;
+  margin-left: -18px;
+  position: absolute;
+  top: 50%;
+
+  -webkit-transition: all 0.4s ease 0s;
+  -moz-transition: all 0.4s ease 0s;
+  -ms-transition: all 0.4s ease 0s;
+  -o-transition: all 0.4s ease 0s;
+  transition: all 0.4s ease 0s;
+  width: 5px;
+}
+
+.side-menus .menu-item-has-children.active > a::before {
+  width: 30px;
+}
+
+.side-menus nav > ul > li ul {
+  background: #36464e none repeat scroll 0 0;
+  display: none;
+  float: left;
+  list-style: outside none none;
+  margin: 10px 0;
+  padding: 20px 0;
+  position: relative;
+  width: 100%;
+}
+
+.side-menus nav > ul > li ul::before {
+  border-bottom: 7px solid #36464e;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  content: "";
+  left: 50px;
+  position: absolute;
+  top: -6px;
+}
+
+.side-menus nav > ul > li ul li {
+  float: left;
+  width: 100%;
+}
+
+.side-menus nav > ul li a,
+.side-menus nav > ul li a i {
+
+  -webkit-transition: all 0.4s ease 0s;
+  -moz-transition: all 0.4s ease 0s;
+  -ms-transition: all 0.4s ease 0s;
+  -o-transition: all 0.4s ease 0s;
+  transition: all 0.4s ease 0s;
+}
+
+.side-menus nav > ul > li ul li > a {
+  color: #a1a3a4;
+  float: left;
+  font-family: Open sans;
+  font-size: 12px;
+  padding: 3px 20px 3px 40px;
+  width: 100%;
+}
+
+.side-menus nav > ul > li ul li > a > i {
+  float: left;
+  font-size: 10px;
+  line-height: 20px;
+  margin-right: 10px;
+}
+
+.side-menus .menu-item-has-children.active > a {
+  color: #fff;
+}
+
+.side-menus .menu-item-has-children.active > a i {
+  color: #ff5f5f;
+}

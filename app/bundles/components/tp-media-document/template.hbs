@@ -1,0 +1,68 @@
+
+<div class="widget-title font-thin">
+    <span>Available {{counter}} document(s)</span>
+</div>
+
+{{#each filteredFiles as |file|}}
+
+    {{#unless isShowMode}}
+
+        <div class="row item-{{file.id}}">
+
+            <div class="col-xs-3 left text-center container-icon m-t-lg">
+                {{#sl-tooltip tagName="span" title=file.mimeType}}
+                    <div class="fa fa-5x fa-{{file.icon}} m-t-lg"></div>
+                {{/sl-tooltip}}
+            </div>
+
+            <div class="col-xs-9 left item-{{file.id}} container-title">
+
+                <div class="row">
+                    <div class="col-xs-12 font-thin">{{t 'user.profile.title'}}:</div>
+                    <div class="col-xs-12">{{input class="form-control" value=file.title}}</div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12 font-thin">{{t 'user.profile.description'}}:</div>
+                    <div class="col-xs-12">{{input class="form-control" value=file.description}}</div>
+                </div>
+
+                <a {{action 'delete' file}}><span class="fa fa-close red-color text-md action-icon"></span></a>
+
+                {{#sl-tooltip tagName="span" title="Save"}}
+                    <a {{action 'update' file}}><span class="fa fa-save red-color text-md action-icon"></span></a>
+                {{/sl-tooltip}}
+
+                {{#sl-tooltip tagName="span" title="Preview"}}
+                    <a target="_blank" href="{{file.publicUrl}}">
+                        <span class="fa fa-eye red-color text-md action-icon"></span>
+                    </a>
+                {{/sl-tooltip}}
+            </div>
+
+        </div>
+
+    {{else}}
+
+        <div class="row">
+
+            <div class="col-xs-4 m-t text-center">
+                <a class=" item-{{file.id}}" href="{{file.publicUrl}}" title="{{file.title}}">
+                    <span class="fa fa-5x fa-{{file.icon}}"></span>
+                </a>
+            </div>
+
+            <div class="col-xs-8 m-t left">
+                <div>
+                    <div class="font-thin">{{t 'user.profile.title'}}:</div> {{file.title}}</div>
+                <div class="m-t">
+                    <div class="font-thin">{{t 'user.profile.description'}}:</div> {{file.description}}</div>
+            </div>
+
+        </div>
+
+    {{/unless}}
+
+{{else}}
+    <span class="text-muted text-sm">{{t 'general.no.data'}}</span>
+{{/each}}

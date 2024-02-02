@@ -1,0 +1,60 @@
+
+//************
+// accordion
+//************
+
+.accordion {
+  float: left;
+  margin-top: 30px;
+  width: 100%;
+}
+
+.accordion > h3 {
+  background: #fcfcfc none repeat scroll 0 0;
+
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  color: #555555;
+  cursor: pointer;
+  float: left;
+  font-size: 14px;
+  margin: 0 0 1px;
+  padding: 19px 40px;
+
+  -webkit-transition: all 0.4s ease 0s;
+  -moz-transition: all 0.4s ease 0s;
+  -ms-transition: all 0.4s ease 0s;
+  -o-transition: all 0.4s ease 0s;
+  transition: all 0.4s ease 0s;
+  width: 100%;
+}
+
+.accordion > h3.current {
+  background: #fff none repeat scroll 0 0;
+
+  -webkit-border-radius: 5px 5px 0 0;
+  -moz-border-radius: 5px 5px 0 0;
+  -ms-border-radius: 5px 5px 0 0;
+  -o-border-radius: 5px 5px 0 0;
+  border-radius: 5px 5px 0 0;
+
+  color: #ff5f5f;
+}
+
+.accordion .pane {
+  background: #ffffff none repeat scroll 0 0;
+
+  -webkit-border-radius: 1px 1px 5px 5px;
+  -moz-border-radius: 1px 1px 5px 5px;
+  -ms-border-radius: 1px 1px 5px 5px;
+  -o-border-radius: 1px 1px 5px 5px;
+  border-radius: 1px 1px 5px 5px;
+
+  float: left;
+  margin-bottom: 1px;
+  padding: 30px 40px;
+  width: 100%;
+}

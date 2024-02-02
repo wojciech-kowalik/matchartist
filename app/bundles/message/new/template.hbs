@@ -1,0 +1,58 @@
+<div style="margin: 0px; margin-top: 50px" class="row">
+    <div class="widget borders">
+        <div class="grids">
+            <div class="widget">
+                <div class="widget-title">
+                    <h3 class="p-t-lg">{{t 'message.new'}}</h3>
+                    {{#sl-button class="tp-button purple right m-b" bubbles=false action='backToPrevious'}}
+                        <span class="fa fa-arrow-left"></span> {{t 'general.back'}}
+                    {{/sl-button}}
+                </div>
+                <div class="form-elements-sec">
+                    <div class="account-form">
+                        <form role="form" {{action "send" on="submit"}}>
+                            <div class="row">
+                                {{#unless model.hasReceiverUserId}}
+                                    <div class="col-md-12 field">
+                                        <label for="message-to">{{t 'message.to'}}</label>
+                                        {{input value=model.receiverUserId class="form-control" placeholder=(t 'message.to')}}
+                                    </div>
+                                {{/unless}}
+                                <div class="col-md-12 field">
+                                    <label for="message-subject">{{t 'message.subject'}}</label>
+                                    {{input value=model.topic class="form-control" placeholder=(t 'message.subject')}}
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="widget">
+                                        <label for="message-text">{{t 'message.content'}}</label>
+
+                                        <div class="add-content-form">
+                                            {{textarea value=model.body class="form-control" placeholder=(t 'message.content')}}
+                                            <!--<div class="add-content">-->
+                                            <!--<ul></ul>-->
+                                            <!--</div>-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12 field">
+
+                                    <div class="widget-title">
+
+                                    </div>
+
+                                    <button class="tp-button btn btn-default red left" {{action 'send' model}}>
+                                        <span class="fa fa-send-o"></span> {{t 'message.send'}}
+                                    </button>
+
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

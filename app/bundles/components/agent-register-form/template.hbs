@@ -1,0 +1,96 @@
+{{#if errorMessage}}
+    <div class="alert alert-danger text-center">
+        {{errorMessage}}
+    </div>
+{{/if}}
+
+{{#if successMessage}}
+    <div class="alert alert-success text-center">
+        {{successMessage}}
+    </div>
+{{/if}}
+
+{{#if infoMessage}}
+    <div class="alert alert-info text-center">
+        {{infoMessage}}
+    </div>
+{{/if}}
+
+<form {{action 'submit' on='submit'}}>
+
+    <div class="row">
+
+        <div class="col-md-6 col-xs-12 field">
+            {{input class="form-control" value=user.firstname placeholder=(t "agent.register.enter.firstname")}}
+            {{#if showErrors}}
+                <div class="text-muted form-error-label">{{v-get user 'firstname' 'message'}}</div>
+            {{/if}}
+        </div>
+
+        <div class="col-md-6 col-xs-12 field">
+            {{input class="form-control" value=user.lastname placeholder=(t "agent.register.enter.lastname")}}
+            {{#if showErrors}}
+                <div class="text-muted form-error-label">{{v-get user 'lastname' 'message'}}</div>
+            {{/if}}
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-6 col-xs-12 field">
+            {{input class="form-control" value=user.email placeholder=(t "agent.register.enter.email")}}
+            {{#if showErrors}}
+                <div class="text-muted form-error-label">{{v-get user 'email' 'message'}}</div>
+            {{/if}}
+        </div>
+
+        <div class="col-md-6 col-xs-12 field">
+            {{input class="form-control" value=user.verifiedEmail placeholder=(t "agent.register.retype.email")}}
+            {{#if showErrors}}
+                <div class="text-muted form-error-label">{{v-get user 'verifiedEmail' 'message'}}</div>
+            {{/if}}
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-6 col-xs-12 field">
+            {{input class="form-control" type='password' value=user.password placeholder=(t "agent.register.enter.password")}}
+            {{#if showErrors}}
+                <div class="text-muted form-error-label">{{v-get user 'password' 'message'}}</div>
+            {{/if}}
+        </div>
+
+        <div class="col-md-6 col-xs-12 field">
+            {{input class="form-control" type='password' value=user.verifiedPassword placeholder=(t "agent.register.retype.password")}}
+            {{#if showErrors}}
+                <div class="text-muted form-error-label">{{v-get user 'verifiedPassword' 'message'}}</div>
+            {{/if}}
+        </div>
+
+    </div>
+
+
+    <div class="row">
+
+        <div class="col-md-12 m-t">
+            <input type="checkbox"/>&nbsp;{{#link-to "legal.notice"}}{{t "agent.register.accept.rules"}}{{/link-to}}
+        </div>
+
+    </div>
+
+    <div class="widget-title m-t"></div>
+
+    <div class="row">
+
+        <div class="field col-md-12">
+            {{#sl-button class="tp-button red left" bubbles=false action='submit'}}
+                <span class="fa fa-sign-in"></span> {{t 'login.form.now'}}
+            {{/sl-button}}
+        </div>
+
+    </div>
+
+</form>

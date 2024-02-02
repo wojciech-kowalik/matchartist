@@ -1,0 +1,319 @@
+
+//************
+// services
+//************
+
+.our-team {
+  float: left;
+  width: 100%;
+  position: relative;
+}
+
+.our-team > img {
+  float: left;
+  width: 100%;
+}
+
+.team-box-sec {
+  height: 100%;
+  left: 0;
+  padding: 10px;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.team-box {
+  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+  display: table;
+  float: left;
+  height: 100%;
+  padding: 20px;
+  position: relative;
+  text-align: center;
+
+  -webkit-transition: all 0.4s ease 0s;
+  -moz-transition: all 0.4s ease 0s;
+  -ms-transition: all 0.4s ease 0s;
+  -o-transition: all 0.4s ease 0s;
+  transition: all 0.4s ease 0s;
+  width: 100%;
+}
+
+.team-info {
+  display: table-cell;
+  margin-top: 50px;
+  opacity: 0;
+
+  -webkit-transition: all 0.4s ease 0s;
+  -moz-transition: all 0.4s ease 0s;
+  -ms-transition: all 0.4s ease 0s;
+  -o-transition: all 0.4s ease 0s;
+  transition: all 0.4s ease 0s;
+  vertical-align: middle;
+  visibility: hidden;
+  width: 100%;
+}
+
+.team-box:hover > .team-info {
+  margin: 0;
+  opacity: 1;
+  visibility: visible;
+}
+
+.team-info > h3 {
+  float: left;
+  font-family: Roboto;
+  font-size: 17px;
+  width: 100%;
+}
+
+.team-info > span {
+  color: #ff5f5f;
+  float: left;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.team-info > p {
+  float: left;
+  margin-bottom: 0;
+  margin-top: 13px;
+  width: 100%;
+}
+
+.social-btns {
+  float: left;
+  padding-top: 30px;
+  text-align: center;
+  width: 100%;
+}
+
+.social-btns > ul {
+  float: left;
+  list-style: outside none none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  width: 100%;
+}
+
+.social-btns > ul > li {
+  display: inline-block;
+}
+
+.social-btns > ul > li > a {
+  float: left;
+}
+
+.social-btns > ul > li > a > i {
+  color: #ffffff;
+  float: left;
+  height: 34px;
+  line-height: 34px;
+  width: 34px;
+}
+
+.social-btns > ul > li > a > i.fa-facebook {
+  background: #3e6baf;
+}
+
+.social-btns > ul > li > a > i.fa-twitter {
+  background: #4dd3f0;
+}
+
+.social-btns > ul > li > a > i.fa-google-plus {
+  background: #ff4949;
+}
+
+.team-box:hover {
+  background: #ffffff none repeat scroll 0 0;
+}
+
+.tooltips-sec {
+  float: left;
+  padding: 40px;
+  position: relative;
+  width: 100%;
+}
+
+.tooltips-sec > .tooltip {
+  float: left;
+  margin: 0 42px 0 0;
+  opacity: 1;
+  position: relative;
+}
+
+.tooltips-on-hover {
+  float: left;
+  padding: 40px;
+  width: 100%;
+}
+
+.popover-sec-static {
+  float: left;
+  padding: 40px;
+  width: 100%;
+}
+
+.popover-sec-static > .popover {
+  display: block;
+  float: left;
+  margin: 0 50px 50px 0;
+  position: relative;
+}
+
+.popover-on-click {
+  float: left;
+  padding: 40px;
+  width: 100%;
+}
+
+.mini-charts {
+  float: left;
+  padding: 40px;
+}
+
+.chart {
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
+
+  padding: 0 15px;
+  position: relative;
+  min-height: 200px;
+  margin: 15px auto;
+  width: 96%;
+  box-sizing: border-box;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+@media only screen and (min-width: 601px) {
+  #DonutTicketsByDepartment {
+    float: left;
+    margin-right: 30px;
+    width: 200px;
+  }
+
+  #TicketByDepartmentLegends {
+    display: block;
+    float: left;
+    list-style: outside none none;
+    margin: 39px 0;
+    padding: 0;
+  }
+
+  .title {
+    display: block;
+    margin-right: 150px;
+  }
+
+  .author {
+    float: right;
+    width: 150px;
+  }
+
+  .lt {
+    display: none;
+  }
+
+}
+
+@media only screen and (max-width: 600px) {
+
+  .chart {
+    text-align: center;
+  }
+
+  #DonutTicketsByDepartment {
+    width: 200px;
+    margin: 0 auto;
+    float: none;
+  }
+
+  #TicketByDepartmentLegends {
+    list-style-type: none;
+    padding-top: 0px !important;
+    margin: 0 auto;
+    display: inline-block;
+    text-align: left;
+  }
+
+  .title,
+  .author {
+    display: block;
+    text-align: center;
+  }
+
+  .author {
+    margin-top: 5px;
+  }
+
+  .lt {
+    display: block;
+  }
+
+  .rt {
+    display: none;
+  }
+
+}
+
+#TicketByDepartmentLegends li {
+  margin-bottom: 10px;
+  font-family: 'Titillium Web', sans-serif;
+  font-weight: 400;
+  color: #000;
+}
+
+#TicketByDepartmentLegends li span.icon {
+
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  float: left;
+  height: 12px;
+  margin: 8px 10px;
+  width: 12px;
+}
+
+#TicketByDepartmentLegends li span.label {
+  color: #757575;
+  display: block;
+  font-family: Open Sans;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 22px;
+  margin-left: 30px;
+  text-align: left;
+}
+
+.pie-responsive {
+  float: left;
+  padding: 40px;
+  position: relative;
+  width: 100%;
+}
+
+.form-elements-sec {
+  float: left;
+  /*padding: 40px;*/
+  //margin-top: 5px;
+  width: 100%;
+}
+
+.form-elements-sec form {
+  margin-bottom: 10px;
+}
+
+.form-elements-sec form select {
+  margin-bottom: 10px;
+}

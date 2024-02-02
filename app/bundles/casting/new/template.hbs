@@ -1,0 +1,51 @@
+
+<div class="row panel-border-padding voffset6">
+    <div class="widget">
+        <div class="grids">
+            <div class="widget">
+                <div class="widget-title">
+                    <h3>{{t 'casting.new.casting' }}</h3>
+                    {{#sl-button class="tp-button purple right m-b" bubbles=false action='backToPrevious'}}
+                        <span class="fa fa-arrow-left"></span> {{t 'general.back'}}
+                    {{/sl-button}}
+                </div>
+                <div class="form-elements-sec">
+                  {{#if infoMessage}}
+                    <div class="alert alert-info text-center">
+                      {{infoMessage}}
+                    </div>
+                  {{/if}}
+                    <div class="account-form">
+                        <form role="form" {{action "save" on="submit"}}>
+                          <div class="col-md-12 field">
+                              <label for="message-subject">{{t 'casting.edit.name'}}</label>
+                              {{input value=model.name class="form-control" placeholder="Name"}}
+                          </div>
+                          <div class="col-md-12 field">
+                              <label for="message-subject">{{t 'casting.edit.description'}}</label>
+                              {{input value=model.description class="form-control" placeholder="Description"}}
+                          </div>
+                          <div class="col-md-12 field">
+                              <label for="message-subject">{{t 'casting.edit.address'}}</label>
+                              {{input value=model.address class="form-control" placeholder="Address"}}
+                          </div>
+                          <div class="col-md-12 field">
+                            <label for="message-subject">{{t 'casting.edit.dateFrom'}}</label>{{sl-date-picker value=model.startDate format='yyyy-mm-dd'}}
+                          </div>
+                          <div class="col-md-12 field">
+                            <label for="message-subject">{{t 'casting.edit.dateTo'}}</label>{{sl-date-picker value=model.endDate format='yyyy-mm-dd'}}
+                          </div>
+                          <div class="row">
+                              <div class="col-xs-12 field">
+                                <button class="tp-button red left" style="background-color: #ff5f5f" {{action 'saveCasting' model}}>
+                                  <span class="fa fa-save"></span> {{t 'general.save'}}
+                                </button>
+                              </div>
+                          </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

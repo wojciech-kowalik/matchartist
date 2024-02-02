@@ -1,0 +1,59 @@
+<div class="comment-detail">
+
+    <span>
+
+        {{#if row.content.isRejected}}
+            <h4 class="m-b-xs" style="color: #ff5f5f">
+                {{row.content.title}}
+            </h4>
+        {{else}}
+            <h4 class="m-b-xs">
+                {{row.content.title}}
+            </h4>
+        {{/if}}
+
+        <i class="text-muted">
+            {{row.content.body}}
+        </i>
+
+        {{#if row.content.castingName}}
+
+            <div class="voffset1 m-t m-b-n-xs">
+                <i>
+                    {{t 'casting.name'}}: {{row.content.castingName}}
+                </i>
+            </div>
+
+        {{/if}}
+
+        <div class="voffset1 m-b">
+            <i>
+                {{t 'message.date'}}: {{moment-format row.content.createdAt 'Do MMMM YYYY'}}
+                ({{moment-from-now row.content.createdAt interval=1000}})
+            </i>
+        </div>
+
+    </span>
+
+    <div class="m-t">
+
+        {{#if row.content.isRoleApply}}
+
+            {{#link-to "role.apply" row.content.roleId class="tp-button btn red red-background"}}
+                <span class="fa fa-check-square-o"></span>{{t 'general.apply'}}
+            {{/link-to}}
+
+        {{/if}}
+
+        {{#sl-tooltip
+        class="tp-button btn red red-background"
+        tagName="a"
+        title=""
+        click=(route-action "markAsRead" row.content tableActions.refresh)
+        }}
+            <span class="fa fa-close"></span> {{t 'invite.mark.as.read'}}
+        {{/sl-tooltip}}
+
+    </div>
+
+</div>

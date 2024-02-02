@@ -1,0 +1,83 @@
+{{#if errorMessage}}
+  <div class="alert alert-danger text-center">
+    {{errorMessage}}
+  </div>
+{{/if}}
+
+{{#if successMessage}}
+  <div class="alert alert-success text-center">
+    {{successMessage}}
+  </div>
+{{/if}}
+
+{{#if infoMessage}}
+  <div class="alert alert-info text-center">
+    {{infoMessage}}
+  </div>
+{{/if}}
+
+<div class="row">
+  {{#each attributes as |attribute|}}
+    <!-- {{log attribute.value}} -->
+    {{#if attribute.isComboSingle}}
+      <div class="col-md-12 field">
+        {{tp-select content=attribute.comboContext label=attribute.name placeholder=attribute.name value=attribute.value action='updateAttribute' model=attribute }}
+      </div>
+    {{/if}}
+    {{#if attribute.isComboMulti}}
+      <div class="col-md-12 field">
+        {{tp-select content=attribute.comboContext label=attribute.name placeholder=attribute.name multiple=true value=attribute.value action='updateAttribute' model=attribute }}
+      </div>
+    {{/if}}
+    {{#if attribute.isFreeText}}
+      <div class="col-md-12 field">
+        {{tp-text label=attribute.fullDescription name=attribute.name placeholder=attribute.name value=attribute.value action='updateAttribute' model=attribute }}
+      </div>
+    {{/if}}
+    {{#if attribute.isNumerical}}
+      <div class="col-md-12 field">
+        {{tp-text label=attribute.fullDescription name=attribute.name placeholder=attribute.name value=attribute.value action='updateAttribute' model=attribute }}
+      </div>
+    {{/if}}
+    {{#if attribute.isBoolean}}
+      <div class="col-md-12 field">
+        {{tp-boolean label=attribute.fullDescription name=attribute.name placeholder=attribute.name value=attribute.value action='updateAttribute' model=attribute }}
+      </div>
+    {{/if}}
+    {{#if attribute.isTrilean}}
+      <div class="col-md-12 field">
+        {{tp-trilean label=attribute.fullDescription name=attribute.name placeholder=attribute.name value=attribute.value action='updateAttribute' model=attribute }}
+      </div>
+    {{/if}}
+    {{#if attribute.isScore}}
+      <div class="col-md-12 field">
+        {{tp-score label=attribute.fullDescription name=attribute.name placeholder=attribute.name value=attribute.value action='updateAttribute' model=attribute }}
+      </div>
+    {{/if}}
+    {{#if attribute.isRangeInt}}
+      <div class="col-md-12 field">
+        <label>{{attribute.fullDescription}}</label>
+      </div>
+      <div class="col-md-12 field">
+        <div class="col-md-1 field"><label style="line-height: 90%;">{{attribute.rangeFrom}}</label></div>
+        <div class="col-md-10 field"></div>
+        <div class="col-md-1 field"><label style="line-height: 90%;">{{attribute.rangeTo}}</label></div>
+        <div class="col-md-12 field">{{tp-range min=attribute.rangeFrom max=attribute.rangeTo step=1 start=attribute.value on-change='updateAttribute' model=attribute }}</div>
+      </div>
+    {{/if}}
+    {{#if attribute.isRangeFloat}}
+      <div class="col-md-12 field">
+        <label>{{attribute.fullDescription}}</label>
+      </div>
+      <div class="col-md-12 field">
+        <div class="col-md-1 field"><label style="line-height: 90%;">{{attribute.rangeFrom}}</label></div>
+        <div class="col-md-10 field"></div>
+        <div class="col-md-1 field"><label style="line-height: 90%;">{{attribute.rangeTo}}</label></div>
+        <div class="col-md-12 field">{{tp-range min=attribute.rangeFrom max=attribute.rangeTo step=1 start=attribute.value on-change='updateAttribute' model=attribute }}</div>
+      </div>
+    {{/if}}
+  {{/each}}
+</div>
+<button class="tp-button red left" style="background-color: #ff5f5f" {{action 'confirm' model}}>
+    <span class="fa fa-save"></span> {{ t 'casting.confirm'}}
+  </button>

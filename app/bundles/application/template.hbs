@@ -1,0 +1,30 @@
+
+<div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls">
+    <div class="slides"></div>
+    <h3 class="title"></h3>
+    <a class="prev">‹</a>
+    <a class="next">›</a>
+    <a class="close">×</a>
+    <a class="play-pause"></a>
+    <ol class="indicator"></ol>
+</div>
+
+{{partial 'partials/top-bar'}}
+
+<section class="container app-content">
+
+    {{#if session.isAuthenticated}}
+        {{partial 'partials/left-menu'}}
+    {{/if}}
+
+    <section class="main-content {{if session.isAuthenticated "logged-content" "" }}">
+        {{outlet}}
+        {{outlet 'modal'}}
+    </section>
+
+</section>
+
+
+{{partial 'partials/footer'}}
+
+

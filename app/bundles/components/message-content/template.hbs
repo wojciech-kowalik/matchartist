@@ -1,0 +1,40 @@
+<div class="comment-detail">
+
+    <span>
+        <h4 class="m-b-xs">
+            {{t 'message.subject'}}: {{row.content.topic}}
+        </h4>
+        <i class="text-muted">
+            {{t 'message.from'}}: {{row.content.senderFullName}} <br/>{{row.content.senderUser.email}}
+        </i>
+
+            <div class="voffset1 m-b">
+                <i>
+                    {{t 'message.date'}}: {{moment-format row.content.createdAt 'Do MMMM YYYY'}}
+                    ({{moment-from-now row.content.createdAt interval=1000}})
+                </i>
+            </div>
+
+    </span>
+
+    <div class="m-t">
+
+        {{#link-to "message.detail" row.content.id class="tp-button btn red red-background"}}
+            <span class="fa fa-info"></span> {{t 'general.detail'}}
+        {{/link-to}}
+        {{#link-to "message.reply"  row.content.id class="tp-button btn red red-background"}}
+            <span class="fa fa-reply"></span> {{t 'message.reply'}}
+        {{/link-to}}
+        {{#sl-tooltip
+        class="tp-button btn red red-background"
+        tagName="a"
+        title=""
+        click=(route-action "showModal" "modals/default/delete" row.content tableActions.refresh)
+        }}
+            <span class="fa fa-close"></span> {{t 'general.delete'}}
+        {{/sl-tooltip}}
+
+    </div>
+
+</div>
+

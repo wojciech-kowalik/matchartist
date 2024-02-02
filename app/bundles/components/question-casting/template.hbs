@@ -1,0 +1,24 @@
+<div class="comment-detail">
+  {{#sl-tooltip class="tp-button btn red red-background" tagName="a" title="" click=(action "addQuestion") }}
+    <span class="fa fa-plus"></span> {{t 'casting.add.question'}}
+  {{/sl-tooltip}}
+</div>
+{{#each questions as |question| }}
+  <div class="row">
+    <div class="col-md-9 field">{{input value=question.text class="form-control" placeholder=""}}</div>
+    <div class="col-md-1 field" {{ action "saveQuestion" question role}}>
+      <div class="comment-detail">
+        {{#sl-tooltip class="tp-button btn red red-background" tagName="a" title="" }}
+          <span class="fa fa-save"></span> {{t 'general.save'}}
+        {{/sl-tooltip}}
+      </div>
+    </div>
+    <div class="col-md-2 field" {{ action "deleteQuestion" question role }}>
+      <div class="comment-detail">
+        {{#sl-tooltip class="tp-button btn red red-background" tagName="a" title="" }}
+          <span class="fa fa-close"></span>{{t 'general.remove'}}
+        {{/sl-tooltip}}
+      </div>
+    </div>
+  </div>
+{{/each}}

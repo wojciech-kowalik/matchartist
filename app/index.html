@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Matchartist</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {{content-for "head"}}
+    <link rel="stylesheet" href="assets/vendor.css?rel=1477337245205">
+    <link rel="stylesheet" href="assets/frontend.css?rel=1477337245205">
+    {{content-for "head-footer"}}
+
+</head>
+<body>
+
+<div id="container"></div>
+
+<script src="assets/vendor.js?rel=1477337245204"></script>
+<script src="assets/frontend.js?rel=1477337245205"></script>
+
+<script id="template-upload" type="text/x-tmpl">
+
+{% for (var i=0, file; file=o.files[i]; i++) { %}
+    <tr class="template-upload fade">
+        <td class="center text-center">
+
+            {% if (file.iconFile) { %}
+                <span class="fa fa-{%=file.iconFile%} icon-file"></span>
+            {% } else { %}
+                <span class="preview"></span>
+            {% } %}
+
+        </td>
+        <td>
+            <p class="title">Title</p>
+            <p class="name"><input style="height: 20px;" name="title" type="text" value="{%=file.name%}" /></p>
+            <strong class="error text-danger"></strong>
+        </td>
+        <td>
+            <p class="size"></p>
+            <div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+            <div class="progress-bar progress-bar-success" style="width:0%;"></div>
+            </div>
+        </td>
+        <td>
+            {% if (!i && !o.options.autoUpload) { %}
+                <button class="tp-button red red-background start" disabled>
+                    <i class="glyphicon glyphicon-upload"></i>
+                    <span>Start</span>
+                </button>
+            {% } %}
+            {% if (!i) { %}
+                <button class="tp-button gray cancel">
+                    <i class="glyphicon glyphicon-ban-circle"></i>
+                    <span>Stop</span>
+                </button>
+            {% } %}
+        </td>
+    </tr>
+{% } %}
+
+</script>
+
+<script id="template-download" type="text/x-tmpl">
+
+{% for (var i=0, file; file=o.files[i]; i++) { %}
+    <tr class="template-download fade m-t m-b">
+        <td>
+            <p class="name">{%=file.mime_type%}</p>
+            {% if (file.error) { %}
+                <div class="font-thin m-t"><span class="label label-danger">Error</span> {%=file.error%}</div>
+            {% } else { %}
+                <div class="font-thin"><span class="label label-success">Success</span> File uploaded</div>
+            {% } %}
+        </td>
+    </tr>
+{% } %}
+
+</script>
+
+
+</body>
+</html>

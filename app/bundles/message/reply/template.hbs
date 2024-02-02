@@ -1,0 +1,95 @@
+<div style="margin: 0px; margin-top: 50px" class="row">
+    <div class="widget borders">
+        <div class="grids">
+            <div class="widget">
+
+                <div class="widget-title">
+                    <h3 class="p-t-lg">{{t 'message.reply.to.message'}}</h3>
+                    {{#sl-button class="tp-button purple right m-b" bubbles=false action='backToPrevious'}}
+                        <span class="fa fa-arrow-left"></span> {{t 'general.back'}}
+                    {{/sl-button}}
+                </div>
+
+                <div class="form-elements-sec">
+                    <div class="account-form">
+                        <form role="form">
+                            <div class="row">
+                                <div class="col-md-12 field">
+                    <span>
+                        <h5>
+                            <b>{{t 'message.subject'}}:</b> {{model.message.topic}}
+                        </h5>
+                    </span>
+
+                    <span>
+                        <h5>
+                            <b>{{t 'message.from'}}:</b> {{model.message.senderFullName}}
+                            ({{model.message.senderUser.email}})
+                        </h5>
+                    </span>
+
+                    <span>
+                        <h5>
+                            <b>{{t 'message.date'}}:</b> {{moment-format model.message.createdAt 'Do MMMM YYYY'}}
+                            ({{moment-from-now model.message.createdAt interval=1000}})
+                        </h5>
+                    </span>
+
+                                </div>
+
+                                <div class="col-xs-12 m-t-n-md">
+
+                                    <h5>
+                                        <h5>
+                                            <b>{{t 'message.content'}}:</b><br/>
+                                            <i style="line-height: 20px;" class="m-t-sm block text-justify font-normal">{{model.message.body}}</i>
+                                        </h5>
+                                    </h5>
+
+                                    <div class="widget-title">
+                                        <h3></h3>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </form>
+
+                        <div class="form-elements-sec">
+                            <div class="account-form">
+                                <form role="form" {{action "send" on="submit"}}>
+                                    <div class="row">
+                                        <div class="col-md-12 field">
+                                            <label for="message-subject">{{t 'message.subject'}}</label>
+                                            {{input value=model.reply.topic class="form-control" placeholder=(t 'message.subject')}}
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="widget">
+                                                <label for="message-text">{{t 'message.content'}}</label>
+
+                                                <div class="add-content-form">
+                                                    {{textarea value=model.reply.body class="form-control" placeholder=(t 'message.content')}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-12 field">
+
+                                            <button class="tp-button btn btn-default red" {{action 'send' model}}>
+                                                <span class="fa fa-envelope"></span> {{t 'message.send'}}
+                                            </button>
+
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

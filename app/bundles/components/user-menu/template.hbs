@@ -1,0 +1,14 @@
+<div class="side-menus">
+
+    <nav>
+
+        <ul>
+            {{#each navigation.modules as |module|}}
+                <li>{{#link-to module.link}}<i class="fa {{module.class}}"></i> <span>{{module.text}}</span>{{/link-to}}
+                </li>
+            {{/each}}
+        </ul>
+
+    </nav>
+
+</div>

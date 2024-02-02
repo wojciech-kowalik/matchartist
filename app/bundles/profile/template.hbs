@@ -1,0 +1,17 @@
+{{#if (eq session.data.authenticated.role 'actor')}}
+
+    {{actor-profile user=model.profile attributes=model.attributes files=model.files mainAttr=mainAttr}}
+
+{{/if}}
+
+{{#if (eq session.data.authenticated.role 'agent')}}
+
+    {{agent-profile user=model.profile}}
+
+{{/if}}
+
+{{#if (eq session.data.authenticated.role 'casting_company')}}
+
+    {{casting-company-profile user=model.profile}}
+
+{{/if}}

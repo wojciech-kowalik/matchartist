@@ -1,0 +1,11 @@
+{{#tp-modal
+    title=(t 'appointment.acceptance')
+    activityButtonText=(t 'appointment.accept')
+    closeButtonText=(t 'general.close')
+    activityMethod=(route-action 'acceptAppointment' model)
+    closeMethod='closeModal'
+}}
+
+    {{t 'appointment.acceptance.text'}}
+
+{{/tp-modal}}

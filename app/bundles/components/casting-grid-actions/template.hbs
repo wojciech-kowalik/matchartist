@@ -1,0 +1,21 @@
+
+<!--
+{{#sl-button theme="info" click=(route-action "showModal" "modals/default/show" row.content)}}<span class="fa fa-user"></span>{{/sl-button}}
+{{#sl-button theme="info" click=(route-action 'custom' row.content tableActions.refresh)}}<span class="fa fa-gears"></span>{{/sl-button}}
+{{#sl-button theme="danger" click=(route-action "showModal" "modals/default/delete" row.content tableActions.refresh)}}<span class="fa fa-close"></span>{{/sl-button}}
+-->
+{{#if row.content.isPublishedOrCanceled}}
+  {{#sl-button theme="info" title="see actors list" click=(route-action 'actors' row.content )}}<span class="fa fa-user"></span>{{/sl-button}}
+{{/if}}
+{{#sl-button theme="info" click=(route-action 'edit' row.content )}}<span class="fa fa-edit"></span>{{/sl-button}}
+{{#sl-button theme="info" title="cancel casting" click=(route-action 'showModal' 'modals/default/cancel' row.content tableActions.refresh)}}<span class="fa fa-close"></span>{{/sl-button}}
+{{#if row.content.isReadyToPublish}}
+  {{#sl-button theme="info" title="publish casting" click=(route-action 'showModal' 'modals/default/publish' row.content tableActions.refresh)}}<span class="fa fa-check"></span>{{/sl-button}}
+{{/if}}
+{{#if row.content.isNotReadyToPublish}}
+  {{#sl-button theme="disabled" title="this casting is not ready for publishing edit for details"}}<span class="fa fa-check"></span>{{/sl-button}}
+{{/if}}
+{{#if row.content.isPublishedOrCanceled}}
+  {{#sl-button theme="disabled" title=row.content.isPublishedOrCanceledText}}<span class="fa fa-check"></span>{{/sl-button}}
+{{/if}}
+{{#sl-button theme="danger" title="remove casting" click=(route-action "showModal" "modals/default/delete" row.content tableActions.refresh)}}<span class="fa fa-close"></span>{{/sl-button}}

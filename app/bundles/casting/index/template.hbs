@@ -1,0 +1,31 @@
+<div class="panel-content m-t">
+    <div class="row">
+        <div class="col-xs-12 m-t">
+            <div class="widget borders">
+                <div class="widget-padding">
+
+                    <div class="widget-title">
+                        <h3>{{t 'catsting.castings'}}</h3>
+                    </div>
+
+                    <div class="account-form">
+
+                        <div class="row">
+
+                            <div class="col-md-12 field m-b">
+                                {{#sl-button class="tp-button red left" bubbles=false action='new'}}
+                                    <span class="glyphicon glyphicon-plus"></span> {{t 'casting.list.new'}}
+                                {{/sl-button}}
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{{tp-data-grid configuration=gridConfiguration}}

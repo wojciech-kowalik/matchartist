@@ -1,0 +1,75 @@
+
+<div class="widget-title font-thin">
+    <span>Available {{counter}} video(s)<br />
+    {{#if counter}}<span class="fa fa-info-circle"></span> {{t 'actor.profile.movie.please.click'}}{{/if}}
+    </span>
+</div>
+
+{{#each filteredFiles as |file|}}
+
+    {{#unless isShowMode}}
+
+        <div class="row item-{{file.id}}">
+
+            <div class="col-xs-6 left text-center container-icon m-t-lg">
+
+                {{#if isApply}}
+                    <label for="checkbox-{{file.id}}" class="font-thin">select</label>
+                    <input id="checkbox-{{file.id}}" class="select-video" data-id="{{file.id}}" type="checkbox" />
+                {{/if}}
+
+                <span class="video-container-{{file.id}}">
+                    <img class="thumbnail-{{file.id}}" style="width: 300px;" src="{{file.thumbnailUrl}}" {{action 'showPlayer' file}} alt="" />
+                </span>
+
+            </div>
+
+            <div class="col-xs-6 left item-{{file.id}} container-title">
+
+                <div class="row">
+                    <div class="col-xs-12 font-thin m-t-sm">{{t 'user.profile.title'}}:</div>
+                    <div class="col-xs-12">{{input class="form-control" value=file.title}}</div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12 font-thin">{{t 'user.profile.description'}}:</div>
+                    <div class="col-xs-12">{{input class="form-control" value=file.description}}</div>
+                </div>
+
+                <span {{action 'delete' file}} class="fa fa-close red-color text-md action-icon"></span>
+                {{#sl-tooltip tagName="span" title="Save"}}
+                    <span {{action 'update' file}}><span
+                            class="fa fa-save red-color text-md action-icon"></span></span>
+                {{/sl-tooltip}}
+            </div>
+
+
+        </div>
+
+    {{else}}
+
+        <div class="row">
+
+            <div class="col-xs-6 m-t text-center">
+                <span class="video-container-{{file.id}}">
+                    <img class="thumbnail-{{file.id}}" style="width: 300px;" src="{{file.thumbnailUrl}}" {{action 'showPlayer' file}} alt="" />
+                </span>
+            </div>
+
+            <div class="col-xs-6 m-t-lg left">
+                <div>
+                    <div class="font-thin">{{t 'user.profile.title'}}:</div> {{file.title}}</div>
+                <div class="m-t">
+                    <div class="font-thin">{{t 'user.profile.description'}}:</div> {{file.description}}</div>
+            </div>
+
+        </div>
+
+
+    {{/unless}}
+
+{{else}}
+    <span class="text-muted text-sm">{{t 'general.no.data'}}</span>
+{{/each}}
+
+

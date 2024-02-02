@@ -1,0 +1,11 @@
+<div class="center text-center">
+    {{#if row.content.user.avatar}}
+        <img class="block" style="width: 86px !important; height: 86px !important;" src="{{row.content.user.avatar}}" alt="">
+    {{else if row.content.actor.user.avatar}}
+        <img class="block" style="width: 86px !important; height: 86px !important;" src="{{row.content.actor.user.avatar}}" alt="">
+    {{else if row.content.sender_user.avatar}}
+        <img class="block" style="width: 86px !important; height: 86px !important;" src="{{row.content.sender_user.avatar}}" alt="">
+    {{else}}
+        <span class="fa fa-user block" style="font-size: 70px;"></span>
+    {{/if}}
+</div>

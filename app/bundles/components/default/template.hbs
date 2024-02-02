@@ -1,0 +1,26 @@
+{{#unless configuration.defaultView}}
+  <div class="panel-content m-t">
+
+    <div class="row">
+      <div class="col-xs-12 m-t">
+
+        <div class="widget borders">
+
+          <div class="widget-padding">
+
+            <div class="widget-title">
+              <h3>{{configuration.headerName}}</h3>
+            </div>
+
+            {{partial 'tp-data-grid/default'}}
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+{{else}}
+    {{partial 'partials/tp-data-grid/defualt'}}
+{{/unless}}

@@ -1,0 +1,176 @@
+<div class="heading-sec">
+
+    <div class="row">
+        <div class="col-xs-12 column">
+            <div class="heading-profile">
+                <h2>{{t "user.profile.welcome-back"}} <span>{{user.firstname}}</span></h2>
+                <span><span
+                        class="fa fa-clock-o"></span> {{t "user.profile.last-login"}} {{moment-from-now loggedDate interval=1000}}</span>
+            </div>
+        </div>
+        <div class="col-md-8 column">
+
+        </div>
+
+    </div>
+</div><!-- Top Bar Chart -->
+
+<div class="panel-content">
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="profile-sec">
+
+                <div class="user-bar">
+
+                    <div class="user-thumb left">
+                        {{#if user.avatar}}
+                            <img src="{{user.avatar}}" alt="" />
+                        {{else}}
+                            <span class="fa fa-user"></span>
+                        {{/if}}
+                    </div>
+
+                    <ul style="margin: 0px;" class="pull-left">
+                        <li>
+                            <b>{{user.firstname}} {{user.lastname}}</b>
+                            <span> {{type}}</span>
+                        </li>
+                    </ul>
+
+                </div>
+
+                <div class="profile-all">
+
+                    {{#if errorMessage}}
+                        <div class="alert alert-danger text-center">
+                            {{errorMessage}}
+                        </div>
+                    {{/if}}
+
+                    {{#if successMessage}}
+                        <div class="alert alert-success text-center">
+                            {{successMessage}}
+                        </div>
+                    {{/if}}
+
+                    {{#if infoMessage}}
+                        <div class="alert alert-info text-center">
+                            {{infoMessage}}
+                        </div>
+                    {{/if}}
+
+                    <div class="row">
+
+                        <div id="content">
+
+                            <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+                                <li class="{{attribute-required "informations" user.isAttributeRequired}}">
+                                    <a href="#informations" data-toggle="tab">{{t "agent.profile.informations"}}</a>
+                                </li>
+
+                            </ul>
+
+                            <div class="tab-content">
+
+                                <div class="tab-pane {{attribute-required "informations" user.isAttributeRequired}}"
+                                     id="informations">
+
+                                    <div style="margin: 0px;" class="row panel-border-padding">
+
+                                        <div class="widget">
+                                            <div class="grids">
+
+                                                <div class="widget">
+
+                                                    <div class="form-elements-sec">
+
+                                                        <div class="widget-title">
+                                                            <h3>{{t 'actor.profile.personal.data'}}</h3>
+                                                        </div>
+
+                                                        <div class="account-form">
+
+                                                            <form role="form">
+
+                                                                <div class="row">
+
+                                                                    <div class="col-xs-12">
+                                                                        <label for="user-avatar">Avatar</label>
+                                                                        {{tp-media-uploader type='picture' serviceUrl='users/me/avatar' changeSendMethod=true}}
+                                                                    </div>
+
+                                                                    <div class="col-md-6 field">
+                                                                        <label for="user-firstname">{{t "general.firstname"}}</label>
+                                                                        {{input class="form-control" value=user.firstname class="form-control"}}
+                                                                    </div>
+                                                                    <div class="col-md-6 field">
+                                                                        <label for="user-lastname">{{t "general.lastname"}}</label>
+                                                                        {{input class="form-control" value=user.lastname class="form-control"}}
+                                                                    </div>
+
+                                                                    <div class="col-md-6 field">
+                                                                        <label for="user-email">{{t "general.email"}}</label>
+                                                                        {{input class="form-control" value=user.email class="form-control"}}
+                                                                    </div>
+
+                                                                </div>
+
+                                                                <div class="widget-title">
+                                                                    <h3>Password change</h3>
+                                                                </div>
+
+                                                                <div class="row">
+
+                                                                    <div class="col-md-6 field">
+                                                                        <label for="user-password">New password</label>
+                                                                        {{input type="password" value=user.password class="form-control"}}
+                                                                    </div>
+
+                                                                    <div class="col-md-6 field">
+                                                                        <label for="user-password-confirmation">Password
+                                                                            confirmation</label>
+                                                                        {{input type="password" value=user.passwordConfirmation class="form-control"}}
+                                                                    </div>
+
+                                                                </div>
+
+                                                                <div class="widget-title m-t"></div>
+
+                                                                <div class="row">
+
+                                                                    <div class="col-xs-12 field">
+                                                                        {{#sl-button class="tp-button red left" bubbles=false action='save'}}
+                                                                            <span class="fa fa-save"></span> {{t 'general.save'}}
+                                                                        {{/sl-button}}
+                                                                    </div>
+
+                                                                </div>
+
+                                                            </form>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+            </div><!-- Profile Sec -->
+        </div>
+    </div>
+</div><!-- Panel Content -->

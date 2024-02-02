@@ -1,0 +1,121 @@
+
+//************
+// task management
+//************
+
+.task-managment {
+  float: left;
+  padding: 40px;
+  width: 100%;
+}
+.add-task-item {
+  border: 1px solid #e8edf2;
+
+  -webkit-border-radius: 22px;
+  -moz-border-radius: 22px;
+  -ms-border-radius: 22px;
+  -o-border-radius: 22px;
+  border-radius: 22px;
+
+  float: left;
+  height: 38px;
+  position: relative;
+  width: 100%;
+}
+.add-task-item  > input {
+  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+  border: medium none;
+  color: #7b7b7b;
+  float: left;
+  font-size: 12px;
+  padding: 9px 20px 9px 25px;
+  width: 100%;
+}
+.add-task-item button {
+  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+  border: medium none;
+  color: #7f8890;
+  font-size: 12px;
+  padding: 8px 16px 8px 20px;
+  position: absolute;
+  right: 0;
+}
+.task-managment > ol {
+  float: left;
+  margin: 20px 0 0;
+  padding: 0 0 0 15px;
+  width: 100%;
+}
+.task-managment > ol > li {
+  color: #424242;
+  float: left;
+  font-family: Open Sans;
+  font-size: 13px;
+  font-weight: 300;
+  padding: 7px 0;
+  position: relative;
+  width: 100%;
+  padding-right: 20px;
+}
+.task-managment > ol > li > i {
+  height: 100%;
+  left: -55px;
+  position: absolute;
+  top: 0;
+  width: 3px;
+}
+
+.task-managment > ol > li::before {
+  background: #bbbbbb none repeat scroll 0 0;
+  content: "";
+  height: 1px;
+  left: 0;
+  position: absolute;
+  top: 50%;
+
+  -webkit-transition:all 0.4s ease 0s;
+  -moz-transition:all 0.4s ease 0s;
+  -ms-transition:all 0.4s ease 0s;
+  -o-transition:all 0.4s ease 0s;
+  transition:all 0.4s ease 0s;
+  width: 0;
+  margin-top: 1px;
+}
+.task-managment > ol > li.active::before {
+  width: 50%;
+}
+.task-managment > ol > li.active {
+  color: #9b9b9b;
+}
+.task-managment > ol > li > span {
+  background: #555 none repeat scroll 0 0;
+
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+
+  color: #fff;
+  cursor: pointer;
+  font-size: 8px;
+  height: 16px;
+  line-height: 16px;
+  margin-top: -9px;
+  opacity: 0;
+  position: absolute;
+  right: -20px;
+  text-align: center;
+  top: 50%;
+
+  -webkit-transition:all 0.4s ease 0s;
+  -moz-transition:all 0.4s ease 0s;
+  -ms-transition:all 0.4s ease 0s;
+  -o-transition:all 0.4s ease 0s;
+  transition:all 0.4s ease 0s;
+  width: 16px;
+}
+.task-managment > ol > li:hover > span{
+  opacity: 1;
+  right: 0;
+}

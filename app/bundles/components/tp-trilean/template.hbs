@@ -1,0 +1,14 @@
+
+<label class="control-label">{{label}}</label>
+
+<form>
+    <label class="radio-inline">
+        <input type="radio" value="1" class="" name={{name}} checked={{yesChecked}} /> {{t "tp-boolean.choice.label.yes" }}
+    </label>
+    <label class="radio-inline">
+        <input type="radio" value="0" class="" name={{name}} checked={{noChecked}} /> {{t "tp-boolean.choice.label.no" }}
+    </label>
+    <label class="radio-inline">
+        <input type="radio" value="maybe" class="" name={{name}} checked={{maybeChecked}} /> {{t "tp-trilean.choice.label.null" }}
+    </label>
+</form>

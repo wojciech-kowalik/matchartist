@@ -1,0 +1,247 @@
+<div class="row voffset4">
+    <div class="widget" style="padding-top: 10px; border: 1px solid #ddd; margin-bottom: 30px">
+
+        <div class="padder-md p-t-md">
+
+            <div class="widget-title">
+                <h3>{{model.casting.name}} {{model.role.name}}</h3>
+            </div>
+
+        </div>
+  <div class="col-md-2 field">
+    {{#if model.casting.isReadyToPublish}}
+      <button class="tp-button red left m-b" style="background-color: #ff5f5f" {{action 'publish' model.casting}}>
+        <span class="fa fa-save"></span> {{t 'casting.publish'}}
+      </button>
+    {{else}}
+      <button class="tp-button gray left m-b">
+        <span class="fa fa-save"></span> {{t 'casting.publish'}}
+      </button>
+    {{/if}}
+  </div>
+  <div class="col-md-8 field">
+
+  </div>
+  <div class="col-md-2 field">
+    {{#sl-button class="tp-button purple right m-b" bubbles=false action='backToPrevious' }}
+      <span class="fa fa-arrow-left"></span> {{t 'general.back'}}
+    {{/sl-button}}
+  </div>
+</div>
+  <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+    <li class={{activeTabEdit "tabCasting" model.casting}}>
+      <a href="#casting" data-toggle="tab" {{action 'setUp' 'tabCasting'}}>{{t 'casting.tab.casting'}}</a>
+    </li>
+    <li class={{activeTabEdit "tabRole" model.casting}}>
+      <a href="#role" data-toggle="tab" {{action 'setUp' 'tabRole'}}>{{t 'casting.tab.role'}}</a>
+    </li>
+    {{#unless model.casting.disableQuestions}}
+      <li class={{activeTabEdit "tabQuestions" model.casting}}>
+        <a href="#questions" data-toggle="tab" {{action 'setUp' 'tabQuestions'}}>{{t 'casting.tab.questions'}}</a>
+      </li>
+      {{else}}
+        <li class={{activeTabEdit "tabQuestions" model.casting}}>
+          <a>{{t 'casting.tab.questions'}}</a>
+        </li>
+    {{/unless}}
+    {{#unless model.casting.disableHearings}}
+      <li class={{activeTabEdit "tabHearings" model.casting}}>
+        <a href="#hearings" data-toggle="tab" {{action 'setUp' 'tabHearings'}}>{{t 'casting.tab.hearings'}}</a>
+      </li>
+      {{else}}
+        <li class={{activeTabEdit "tabHearings" model.casting}}>
+          <a>{{t 'casting.tab.hearings'}}</a>
+        </li>
+    {{/unless}}
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane {{activeTabEdit "tabCasting" model.casting}}" id="casting">
+      <div class="row panel-border-padding">
+        <div class="widget">
+          <div class="grids">
+            <div class="widget">
+              <div class="widget-title">
+                <h3>{{t 'casting.tab.casting'}}</h3>
+              </div>
+              <div class="form-elements-sec">
+                <div class="account-form">
+                  <form role="form" {{action "save" on="submit"}}>
+                    <div class="col-md-12 field">
+                      <label for="message-subject">{{t 'casting.edit.name'}}</label> {{input value=model.casting.name class="form-control" placeholder="Name"}}
+                    </div>
+                    <div class="col-md-12 field">
+                      <label for="message-subject">{{t 'casting.edit.description'}}</label> {{input value=model.casting.description class="form-control" placeholder="Description"}}
+                    </div>
+                    <div class="col-md-12 field">
+                      <label for="message-subject">{{t 'casting.edit.address'}}</label> {{input value=model.casting.address class="form-control" placeholder="Address"}}
+                    </div>
+                    <div class="col-md-12 field">
+                      <label for="message-subject">{{t 'casting.edit.dateFrom'}}</label>{{sl-date-picker value=(formated-date model.casting.startDate "YYYY-MM-DD") format='yyyy-mm-dd'}}
+                    </div>
+                    <div class="col-md-12 field">
+                      <label for="message-subject">{{t 'casting.edit.dateTo'}}</label>{{sl-date-picker value=(formated-date model.casting.endDate "YYYY-MM-DD") format='yyyy-mm-dd'}}
+                    </div>
+                    <div class="col-xs-12 field">
+                      <button class="tp-button red left" style="background-color: #ff5f5f" {{action 'saveCasting' model.casting}}>
+                            <span class="fa fa-save"></span> {{t 'general.save'}}
+                          </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tab-pane {{activeTabEdit "tabRole" model.casting}}" id="role">
+      <div class="row panel-border-padding">
+        <div class="widget">
+          <div class="grids">
+            <div class="widget">
+              <div class="widget-title">
+                <h3>{{t 'casting.tab.role'}}</h3>
+              </div>
+              <div class="form-elements-sec">
+                {{#if infoMessage}}
+                  <div class="alert alert-info text-center">
+                    {{infoMessage}}
+                  </div>
+                {{/if}}
+                <div class="account-form">
+                  <form role="form">
+                    <div class="widget-title">
+                      <h5>{{t 'casting.tab.role'}}</h5>
+                    </div>
+                    <div class="col-md-12 field">
+                      <label for="message-subject">{{t 'casting.role.name'}}</label> {{input value=model.role.name class="form-control" placeholder="Name"}}
+                    </div>
+                    <div class="col-md-12 field">
+                      <label for="message-subject">{{t 'casting.role.description'}}</label> {{input value=model.role.description class="form-control" placeholder="Description"}}
+                    </div>
+                    <div class="col-xs-12 m-t">
+                      <div class="widget-title">
+                        <h5>{{t 'casting.tab.actor.attributes'}}</h5>
+                      </div>
+                      <div class="row">
+                        {{#each model.attributes as |attribute|}}
+                          <!-- {{log attribute.value}} -->
+                          {{#if attribute.isComboSingle}}
+                            <div class="col-md-12 field">
+                              {{tp-select content=attribute.comboContext label=attribute.fullDescription placeholder=attribute.name value=attribute.value action='updateFilter' model=attribute }}
+                            </div>
+                          {{/if}}
+                          {{#if attribute.isComboMulti}}
+                            <div class="col-md-12 field">
+                              {{tp-select content=attribute.comboContext label=attribute.fullDescription placeholder=attribute.name multiple=true value=attribute.value action='updateFilter' model=attribute }}
+                            </div>
+                          {{/if}}
+                          {{#if attribute.isBoolean}}
+                            <div class="col-md-12 field">
+                              {{tp-boolean label=attribute.fullDescription name=attribute.name placeholder=attribute.name value=attribute.value action='updateFilter' model=attribute }}
+                            </div>
+                          {{/if}}
+                          {{#if attribute.isTrilean}}
+                            <div class="col-md-12 field">
+                              {{tp-trilean label=attribute.fullDescription name=attribute.name placeholder=attribute.name value=attribute.value action='updateFilter' model=attribute }}
+                            </div>
+                          {{/if}}
+                          {{#if attribute.isScore}}
+                            <div class="col-md-12 field">
+                              {{tp-score label=attribute.fullDescription name=attribute.name placeholder=attribute.name value=attribute.value action='updateFilter' model=attribute }}
+                            </div>
+                          {{/if}}
+                          {{#if attribute.isRangeInt}}
+                            <div class="col-md-12 field">
+                              {{tp-range-filter label=attribute.fullDescription labelFrom="From" labelTo="To" action='updateFilter' model=attribute}}
+                            </div>
+                          {{/if}}
+                          {{#if attribute.isRangeFloat}}
+                            <div class="col-md-12 field">
+                              {{tp-range-filter label=attribute.fullDescription labelFrom="From" labelTo="To" action='updateFilter' model=attribute}}
+                            </div>
+                          {{/if}}
+                        {{/each}}
+                      </div>
+                    </div>
+                    <div class="col-xs-12 field" style="margin-top: 30px">
+                      <button class="tp-button red left" style="background-color: #ff5f5f" {{action 'saveRole' model}}>
+                              <span class="fa fa-save"></span> {{t 'general.save'}}
+                            </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tab-pane {{activeTabEdit "tabQuestions" model.casting}}" id="questions">
+      <div class="row panel-border-padding">
+        <div class="widget">
+          <div class="grids">
+            <div class="widget">
+              <div class="widget-title">
+                <h3>{{t 'casting.tab.questions'}}</h3>
+              </div>
+              <div class="form-elements-sec">
+                {{#if infoMessage}}
+                  <div class="alert alert-info text-center">
+                    {{infoMessage}}
+                  </div>
+                {{/if}}
+                <div class="account-form">
+                  <form role="form">
+                    {{question-casting questions=model.questions role=model.role}}
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12 field">
+                <button class="tp-button red left" style="background-color: #ff5f5f" {{action 'confirmQuestions' model}}>
+                    <span class="fa fa-save"></span> {{ t 'casting.confirm'}}
+                  </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tab-pane {{activeTabEdit "tabHearings" model.casting}}" id="hearings">
+      <div class="row panel-border-padding">
+        <div class="widget">
+          <div class="grids">
+            <div class="widget">
+              <div class="widget-title">
+                <h3>{{t 'casting.tab.hearings'}}</h3>
+              </div>
+              <div class="form-elements-sec">
+                {{#if infoMessage}}
+                  <div class="alert alert-info text-center">
+                    {{infoMessage}}
+                  </div>
+                {{/if}}
+                <div class="account-form">
+                  <form role="form">
+                    {{hearing-casting casting=model.casting hearings=model.hearings role=model.role stage=model.stage}}
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12 field">
+                <div class="comment-detail">
+                <button class="tp-button red left" style="background-color: #ff5f5f" {{action 'confirmHearings' model}}>
+                    <span class="fa fa-save"></span> {{ t 'casting.confirm'}}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

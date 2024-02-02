@@ -1,0 +1,60 @@
+<div class="comment-detail">
+
+    <span>
+        <h4 class="m-b-xs">{{row.content.user.firstname}} {{row.content.user.lastname}}
+        </h4>
+        <i class="text-muted">{{row.content.user.email}}</i>
+        <div class="voffset1">{{t 'actor.personal.number'}}: {{row.content.personalNumber}}</div>
+        {{#if row.content.birthDate}}
+            <div>{{t 'actor.birth.date'}}: {{row.content.birthDate}}</div>
+        {{/if}}
+    </span>
+
+    <div class="m-t">
+
+        {{#link-to "actor.detail" row.content.id class="tp-button btn red red-background m-t-sm"}}
+            <span class="fa fa-info"></span> {{t 'general.detail'}}
+        {{/link-to}}
+
+        {{#link-to "message.new"
+        row.content.user.id
+        (query-params transitionTarget=backLink transitionId=0)
+        class="tp-button btn red red-background m-t-sm"}}
+            <span class="fa fa-send-o"></span> {{t 'message.detail'}}
+        {{/link-to}}
+
+        {{#if isFavouriteButton}}
+
+            {{#if isFavouriteList}}
+
+                {{#sl-button
+                class="tp-button btn btn-default purple small m-t-sm"
+                click=(route-action "showModal" "modals/default/delete" row.content tableActions.refresh)}}
+                    <span class="fa fa-star"></span> {{t 'actor.remove.from.favourites'}}
+                {{/sl-button}}
+
+            {{else}}
+
+                <button {{action 'addToFavourites' row.content}} class="tp-button btn btn-default red small m-t-sm">
+                    <span class="fa fa-star"></span> {{t 'actor.add.to.favourites'}}
+                </button>
+
+            {{/if}}
+
+        {{/if}}
+
+
+        {{#if isInvitationButton}}
+
+            {{#link-to "actor.invitation"
+            row.content.id
+            (query-params transitionTarget="actor" transitionId=0)
+            class="tp-button btn btn-default purple m-t-sm"}}
+                <span class="fa fa-share-square-o"></span> {{t 'invitation.invitation'}}
+            {{/link-to}}
+
+        {{/if}}
+
+    </div>
+
+</div>

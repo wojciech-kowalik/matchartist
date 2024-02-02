@@ -1,0 +1,38 @@
+<div class="comment-detail">
+  {{#sl-tooltip class="tp-button btn red red-background" tagName="a" title="" click=(action "addHearing") }}
+    <span class="fa fa-plus"></span> {{t 'casting.add.hearing'}}
+  {{/sl-tooltip}}
+</div>
+{{#each hearings as |hearing| }}
+  <div class="row">
+    {{#if hearing.isNew}}
+      <div class="col-md-4 field">
+        {{sl-date-picker placeholder=(t 'casting.edit.dateFrom') value=hearing.dateFrom format='yyyy-mm-dd'}}
+      </div>
+      <div class="col-md-4 field">
+        {{sl-date-picker placeholder=(t 'casting.edit.dateTo') value=hearing.dateTo format='yyyy-mm-dd'}}
+      </div>
+    {{else}}
+      <div class="col-md-4 field">
+        {{sl-date-picker placeholder=(t 'casting.edit.dateFrom') value=(formated-date hearing.dateFrom "YYYY-MM-DD") format='yyyy-mm-dd'}}
+      </div>
+      <div class="col-md-4 field">
+        {{sl-date-picker placeholder=(t 'casting.edit.dateTo') value=(formated-date hearing.dateTo "YYYY-MM-DD") format='yyyy-mm-dd'}}
+      </div>
+    {{/if}}
+    <div class="col-md-1 field" {{ action "saveHearing" hearing }}>
+      <div class="comment-detail">
+        {{#sl-tooltip class="tp-button btn red red-background" tagName="a" title="" }}
+          <span class="fa fa-save"></span> {{t 'general.save'}}
+        {{/sl-tooltip}}
+      </div>
+    </div>
+    <div class="col-md-2 field" {{ action "deleteHearing" hearing }}>
+      <div class="comment-detail">
+        {{#sl-tooltip class="tp-button btn red red-background" tagName="a" title="" }}
+          <span class="fa fa-close"></span> {{t 'general.remove'}}
+        {{/sl-tooltip}}
+      </div>
+    </div>
+  </div>
+{{/each}}

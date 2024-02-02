@@ -1,0 +1,174 @@
+
+<div style="margin: 0px; margin-top: 50px" class="row">
+
+    <div class="widget borders">
+
+        <div class="grids">
+
+            <div class="widget">
+
+                <div class="widget-title">
+                    <h3 class="p-t-lg">{{t 'role.applying'}}</h3>
+                    {{#sl-button class="tp-button purple right m-b" bubbles=false action='backToPrevious'}}
+                        <span class="fa fa-arrow-left"></span> {{t 'general.back'}}
+                    {{/sl-button}}
+                </div>
+
+                <div class="panel-content m-t-n">
+
+                    <div class="row">
+
+                        <div class="col-xs-12 field">
+                            <span>
+                                <h4>
+                                    <span class="fa fa-user"></span>
+                                    "{{model.role.name}}"
+                                </h4>
+                            </span>
+                        </div>
+
+                        <div class="col-xs-12 field">
+                            <span><h5>{{t 'role.description'}}:</h5></span>
+                            <span class="muted"><i>{{model.role.description}}</i></span>
+                        </div>
+
+                        <div class="col-xs-12">
+
+                            <div class="profile-sec">
+
+                                <div class="row">
+
+                                    <div id="content">
+
+                                        <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+
+                                            <li class="active">
+                                                <a href="#questions" data-toggle="tab">{{t 'role.questions'}}</a>
+                                            </li>
+
+                                            <li>
+                                                <a href="#hearings-dates" data-toggle="tab">{{t 'role.hearings.dates'}}</a>
+                                            </li>
+
+                                            <li>
+                                                <a href="#movies" data-toggle="tab">{{t 'user.profile.videos'}}</a>
+                                            </li>
+
+                                        </ul>
+
+                                        <div class="tab-content">
+
+                                            <div class="tab-pane" id="hearings-dates">
+
+                                                <div style="margin: 0px;" class="row panel-border-padding">
+
+                                                    <div class="widget">
+
+                                                        <div style="padding: 10px;" class="grids">
+
+                                                            <div class="widget">
+
+                                                                <div class="widget-title m-t font-thin">
+                                                                    <span>{{t 'role.choose.hearing.date'}}</span>
+                                                                </div>
+
+                                                                <div class="form-elements-sec">
+
+                                                                    {{role-hearing hearings=model.role.hearings}}
+
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+                                            <div class="tab-pane" id="movies">
+
+                                                <div style="margin: 0px;" class="row panel-border-padding">
+
+                                                    <div class="widget">
+
+                                                        <div style="padding: 10px;" class="grids">
+
+                                                            <div class="widget">
+
+                                                                <div class="form-elements-sec">
+
+                                                                    {{tp-media-video files=model.files isApply=true}}
+
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+                                            <div class="tab-pane active" id="questions">
+
+                                                <div style="margin: 0px;" class="row panel-border-padding">
+
+                                                    <div class="widget">
+
+                                                        <div style="padding: 10px;" class="grids">
+
+                                                            <div class="widget">
+
+                                                                <div class="widget-title m-t font-thin">
+                                                                    <span>{{t 'role.answer.question'}}</span>
+                                                                </div>
+
+                                                                <div class="form-elements-sec">
+
+                                                                    {{question-actor questions=model.user.actor.questions role=model.role user=model.user}}
+
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                        <div class="widget-title m-t"></div>
+
+                                        <div class="row">
+
+                                            <div class="col-xs-12 field">
+
+                                                {{#sl-button class="tp-button red left" bubbles=false action='apply'}}
+                                                    <span class="fa fa-check-square-o"></span> {{t 'role.apply'}}
+                                                {{/sl-button}}
+
+                                                {{#sl-button class="tp-button purple left" bubbles=false action='backToPrevious'}}
+                                                    <span class="fa fa-arrow-left"></span> {{t 'general.back'}}
+                                                {{/sl-button}}
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

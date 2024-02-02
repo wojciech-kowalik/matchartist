@@ -1,0 +1,29 @@
+<div class="container m-t-giant">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="contact-sec">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="widget-title">
+                            <h3>{{t 'forgot.password.header'}}</h3>
+                            <span>{{t 'forgot.password.instruction'}}</span>
+                        </div><!-- Widget title -->
+                        <div class="account-form">
+                            {{forgot-password-form user=model errorMessage=errorMessage}}
+                        </div>
+                        <div class="more-option">
+                            <span>{{t 'general.or'}}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="creat-an-account">
+                            <span>{{t 'login.account'}}</span>
+                            {{#link-to "login" class="tp-button red left"}}<span class="fa fa-sign-in"></span> {{t 'login.into'}}{{/link-to}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

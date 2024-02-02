@@ -1,0 +1,25 @@
+<div class="comment-detail">
+
+    <span>
+        <h4 class="m-b-xs">{{row.content.actor.user.firstname}} {{row.content.actor.user.lastname}}
+        </h4>
+        <i class="text-muted">{{row.content.actor.user.email}}</i>
+        <div class="m-t-sm">{{t 'casting.tab.casting'}}: {{row.content.role.casting.name}}</div>
+        <div>{{t 'role.actor.casting.archived.role.name'}}: {{row.content.role.name}}</div>
+    </span>
+    <div class="m-t">
+
+        {{#link-to "actor.detail" row.content.actor.id class="tp-button btn red red-background m-t-sm"}}
+            <span class="fa fa-info"></span> {{t 'general.detail'}}
+        {{/link-to}}
+
+        {{#link-to "message.new"
+        row.content.actor.user.id
+        (query-params transitionTarget=backLink transitionId=0)
+        class="tp-button btn red red-background m-t-sm"}}
+            <span class="fa fa-send-o"></span> {{t 'message.detail'}}
+        {{/link-to}}
+        </div>
+
+</div>
+

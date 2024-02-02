@@ -1,0 +1,127 @@
+//************
+// our clients section
+//************
+
+.our-clients-sec {
+  float: left;
+  padding: 40px;
+  width: 100%;
+}
+
+.filterform > input {
+  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+  border: medium none;
+  color: #7b7b7b;
+  float: left;
+  font-size: 12px;
+  padding: 9px 20px 9px 25px;
+  width: 100%;
+}
+
+form.filterform {
+  border: 1px solid #dbe0e2;
+
+  -webkit-border-radius: 22px;
+  -moz-border-radius: 22px;
+  -ms-border-radius: 22px;
+  -o-border-radius: 22px;
+  border-radius: 22px;
+
+  float: left;
+  height: 38px;
+  margin: 0 0 30px;
+  position: relative;
+  width: 100%;
+}
+
+.client-list {
+  list-style: outside none none;
+  margin: 0 -20px;
+  padding: 0;
+}
+
+.client-list > li {
+  display: table;
+  float: left;
+  margin-bottom: 15px;
+  padding: 0 20px;
+  position: relative;
+  width: 100%;
+}
+
+.client-info > a {
+  color: #cbcbcb;
+  font-size: 14px;
+  margin-top: -15px;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+}
+
+.client-info > h3 {
+  float: left;
+  margin: 0;
+  width: 100%;
+}
+
+.client-info > h3 a {
+  color: #2e2e2e;
+  float: left;
+  font-family: Roboto;
+  font-size: 15px;
+  margin: 0;
+  width: 100%;
+}
+
+.client-list > li > span {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+
+  color: #fff;
+  float: left;
+  font-family: MOntserrat;
+  font-size: 21px;
+  height: 51px;
+  line-height: 50px;
+  position: relative;
+  text-align: center;
+  width: 51px;
+}
+
+.client-info {
+  display: table-cell;
+  padding-left: 15px;
+  position: relative;
+  vertical-align: middle;
+  width: 100%;
+}
+
+.user-status::before {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+
+  content: "";
+  height: 6px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 6px;
+}
+
+.user-status.online::before {
+  background: #5bdd5e;
+}
+
+.user-status.offline::before {
+  background: #ff6a7f;
+}
+
+.user-status.away::before {
+  background: #ffda2b;
+}

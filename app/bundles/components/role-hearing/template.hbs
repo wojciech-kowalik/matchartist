@@ -1,0 +1,12 @@
+
+{{#each hearings as |hearing|}}
+    <div class="col-xs-12 field m-t">
+
+        <label class="radio-inline">
+            <input class="hearing-date" value="{{hearing.id}}" name="hearing" type="radio">
+            {{hearing.label}}
+        </label>
+
+    </div>
+{{/each}}
+

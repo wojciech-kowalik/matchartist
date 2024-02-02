@@ -1,0 +1,59 @@
+<aside class="container">
+
+    <section class="top-bar">
+
+        <div class="logo">
+            <a href="/" title=""><i class="fa fa-users"></i>Matchartist</a>
+            {{#if session.isAuthenticated}}
+
+                <div class="menu-options">
+
+                    <div class="fa fa-times hamburger"></div>
+
+                    <!--<span class="menu-action">-->
+                        <!--<i></i>-->
+                    <!--</span>-->
+
+                </div>
+            {{/if}}
+        </div>
+
+        {{#unless session.isAuthenticated}}
+            <ul class="account-header-link">
+                <li>{{#link-to "register"}}{{t 'homepage.register'}}{{/link-to}}</li>
+                <li>{{#link-to "forgot-password"}}{{t 'homepage.forgot.password'}}{{/link-to}}</li>
+                <li><a title="">{{t 'homepage.email.us'}}</a></li>
+            </ul>
+        {{/unless}}
+
+        {{#if session.isAuthenticated}}
+
+            <div class="quick-links">
+                <ul>
+
+                    <li style="padding-top: 6px; padding-right: 10px; font-size: smaller; color: #555555">
+                        <span style="color: #ff5f5f" class="fa fa-user"></span> <b style="color: #ff5f5f">{{t 'homepage.logged.as'}}</b> {{session.data.authenticated.email}}
+                    </li>
+
+                    <li><a title="" id="toolFullScreen" class="pink-skin quick-link"><i class="fa fa-expand fa-fw"></i></a></li>
+                    <li>
+
+                        {{#sl-tooltip
+                            class="red-skin"
+                            tagName="a"
+                            title=""
+                            click=(route-action "showModal" "modals/logout")
+                        }}
+                            <i class="fa fa-sign-out"></i>
+                        {{/sl-tooltip}}
+
+                        </li>
+
+                </ul>
+            </div>
+
+        {{/if}}
+
+    </section>
+
+</aside><!-- Top Bar -->
